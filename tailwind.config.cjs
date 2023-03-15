@@ -11,6 +11,9 @@ module.exports = {
       sm: ["18px", "39.5px"],
       base: "14px",
     },
+    colors: {
+      "primary-black": "#292929",
+    },
     extend: {},
   },
   plugins: [],
