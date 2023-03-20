@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Search from "../assets/search icon.png";
-import Cart from "../assets/cart icon.png";
-import Notifications from "../assets/notification icon.png";
+import Search from "../assets/images/search icon.png";
+import Cart from "../assets/images/cart icon.png";
+import Notifications from "../assets/images/notification icon.png";
 
 const Navbar = () => {
   return (
-    <header className="py-8">
+    <header className="py-4">
       <div className="lg:mx-[8%] flex flex-row justify-between items-center">
         <h3 className="uppercase text-primary-black">Artsy</h3>
         <ul className="flex flex-row gap-6">

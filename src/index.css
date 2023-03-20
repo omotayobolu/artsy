@@ -12,9 +12,9 @@
 
   html {
     font-family: STIX Two Text, sans-serif;
+    background-color: #ffffff;
   }
 
-  h1,
   h2,
   h3,
   h4,
@@ -23,8 +23,24 @@
     font-family: STIX Two Text;
   }
 
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl font-medium;
+  }
+
   h3 {
     @apply lg:text-xl font-bold;
+  }
+
+  p {
+    @apply xl:text-md text-sm;
+  }
+
+  a {
+    @apply cursor-pointer;
   }
 
   @layer components {
@@ -38,6 +54,14 @@
 
     .link.active {
       @apply text-lg font-medium border-b-2 border-b-primary-black;
+    }
+
+    .product:nth-child(2) > div {
+      @apply flex flex-row-reverse;
+    }
+
+    .arrows img {
+      @apply bg-secondary-white p-5 drop-shadow-[7.77px_7.77px_11.66px_rgba(0,0,0,15%)] blur-[15.54] rounded-full cursor-pointer;
     }
   }
 }

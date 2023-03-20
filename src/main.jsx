@@ -8,7 +8,7 @@ import {
 import App from "./App";
 import "./index.css";
 import ErrorPage from "./pages/ErrorPage";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import MarketPlace from "./pages/MarketPlace";
 import Auctions from "./pages/Auctions";
 import Drop from "./pages/Drop";
