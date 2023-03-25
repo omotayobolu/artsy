@@ -6,7 +6,7 @@ import Notifications from "../assets/images/notification icon.png";
 
 const Navbar = () => {
   return (
-    <header className="py-4">
+    <header className="py-6">
       <div className="lg:mx-[8%] flex flex-row justify-between items-center">
         <h3 className="uppercase text-primary-black">Artsy</h3>
         <ul className="flex flex-row gap-6">

@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     fontSize: {
       "3xl": ["64px", "156.7%"],
-      "2xl": ["48px", "118px"],
-      xl: ["32px", "90px"],
-      lg: ["24px", "70px"],
+      "2xl": ["48px", "118%"],
+      xl: ["32px", "90%"],
+      lg: ["24px", "70%"],
       md: "20px",
       sm: "18px",
       base: "14px",
@@ -21,6 +21,7 @@ module.exports = {
       "light-blue": "rgba(121,184,210,100%)",
       orange: "rgba(192,86,9,49%)",
       grey: "#aeaeae",
+      "light-grey": "#e2e2e2",
     },
     screens: {
       sm: "640px",

@@ -28,11 +28,15 @@
   }
 
   h2 {
-    @apply text-2xl font-medium;
+    @apply lg:text-2xl font-medium;
   }
 
   h3 {
     @apply lg:text-xl font-bold;
+  }
+
+  h4 {
+    @apply lg:text-lg;
   }
 
   p {
@@ -42,26 +46,34 @@
   a {
     @apply cursor-pointer;
   }
+}
 
-  @layer components {
-    .container {
-      @apply lg:mx-[8%];
-    }
+@layer components {
+  .container {
+    @apply lg:mx-[8%];
+  }
 
-    .link {
-      @apply text-lg font-normal text-primary-black;
-    }
+  .link {
+    @apply text-lg font-normal text-primary-black;
+  }
 
-    .link.active {
-      @apply text-lg font-medium border-b-2 border-b-primary-black;
-    }
+  .link.active {
+    @apply text-lg font-medium border-b-2 border-b-primary-black;
+  }
 
-    .product:nth-child(2) > div {
-      @apply flex flex-row-reverse;
-    }
+  .product:nth-child(2) > div {
+    @apply flex flex-row-reverse;
+  }
 
-    .arrows img {
-      @apply bg-secondary-white p-5 drop-shadow-[7.77px_7.77px_11.66px_rgba(0,0,0,15%)] blur-[15.54] rounded-full cursor-pointer;
-    }
+  .arrows img {
+    @apply bg-secondary-white p-5 drop-shadow-[7.77px_7.77px_11.66px_rgba(0,0,0,15%)] blur-[15.54] rounded-full cursor-pointer;
+  }
+
+  .creators li {
+    @apply lg:text-xl leading-normal font-normal;
+  }
+
+  .footer-link {
+    @apply text-lg text-primary-black cursor-pointer;
   }
 }
