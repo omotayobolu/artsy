@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import UpcomingAuctionsData from "../../data/UpcomingAuctionsData";
-import Next from "../../assets/images/next.png";
-import Previous from "../../assets/images/previous.png";
 import BlueArrow from "../../assets/images/arrow-blue.png";
+import { Link } from "react-router-dom";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const UpcomingAuctions = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -72,18 +72,35 @@ const UpcomingAuctions = () => {
             `}
             ></span>
           </div>
-          <div className="arrows flex flex-row items-center gap-6">
-            <img src={Previous} onClick={previousSlide} alt="" />
-            <img src={Next} onClick={nextSlide} alt="" />
+          <div className="flex flex-row items-center gap-6">
+            <div
+              onClick={previousSlide}
+              className="bg-secondary-white p-5 drop-shadow-[7.77px_7.77px_11.66px_rgba(0,0,0,15%)] blur-[15.54] rounded-full cursor-pointer"
+            >
+              <MdKeyboardArrowLeft
+                style={{ color: "#ffffff", fontSize: "20px" }}
+              />
+            </div>
+
+            <div
+              onClick={nextSlide}
+              className="bg-secondary-white p-5 drop-shadow-[7.77px_7.77px_11.66px_rgba(0,0,0,15%)] blur-[15.54] rounded-full cursor-pointer"
+            >
+              <MdKeyboardArrowRight
+                style={{ color: "#ffffff", fontSize: "20px" }}
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="bg-white md:my-[10%]">
         <hr className="border-t- border-secondary-black" />
-        <div className="flex items-center justify-between lg:px-[8%] py-4">
-          <h2 className="text-secondary-black">Explore marketplace</h2>
-          <img src={BlueArrow} alt="" />
-        </div>
+        <Link to={"/marketplace"}>
+          <div className="flex items-center justify-between lg:px-[8%] py-4">
+            <h2 className="text-secondary-black">Explore marketplace</h2>
+            <img src={BlueArrow} alt="" />
+          </div>
+        </Link>
         <hr className="border-t- border-secondary-black" />
         <div className="flex items-center justify-between lg:px-[8%] py-4">
           <h2 className="text-secondary-black">See Auctions</h2>

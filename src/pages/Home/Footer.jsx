@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import PrimaryBtn from "../../components/PrimaryBtn";
-import Mail from "../../assets/images/Mail.png";
-import Location from "../../assets/images/Location.png";
+import { BiEnvelope } from "react-icons/bi";
+import { MdOutlineLocationOn } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -55,11 +55,11 @@ const Footer = () => {
         </ul>
         <div className="flex flex-col gap-4">
           <div className="flex flex-row items-center text-secondary-black gap-1">
-            <img src={Mail} alt="" />
+            <BiEnvelope style={{ fontSize: "35px" }} />
             <h4>artsystudios@gmail.com</h4>
           </div>
           <div className="flex flex-row items-center text-secondary-black gap-1">
-            <img src={Location} alt="" />
+            <MdOutlineLocationOn style={{ fontSize: "35px" }} />
             <h4>Lagos, Nigeria.</h4>
           </div>
         </div>

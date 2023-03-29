@@ -5,8 +5,7 @@ import Creator2 from "../../assets/images/Creator-2.png";
 import Creator3 from "../../assets/images/Creator-3.png";
 import Creator4 from "../../assets/images/Creator-4.png";
 import Creator5 from "../../assets/images/Creator-5.png";
-import ArrowBlack from "../../assets/images/arrow-black.png";
-import ArrowWhite from "../../assets/images/arrow-white.png";
+import { BsArrowRight } from "react-icons/bs";
 
 const FeaturedProduct = () => {
   return (
@@ -22,14 +21,17 @@ const FeaturedProduct = () => {
                 <img className="max-w-full" src={product.image} alt="" />
                 <div className="absolute top-[50%] left-[50%] flex flex-row items-center justify-center translate-x-[-50%] translate-y-[-50%] gap-8 opacity-0 hover:opacity-100 h-full w-full bg-product-image-hover cursor-pointer">
                   <span className="text-white text-lg">View Product</span>
-                  <img
-                    className="border border-white py-5 px-3 rounded-full"
-                    src={ArrowWhite}
-                    alt=""
-                  />
+                  <div className="p-3 border border-white rounded-full">
+                    <BsArrowRight
+                      style={{
+                        color: "#ffffff",
+                        fontSize: "30px",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col text-secondary-black">
+              <div className="flex flex-col gap-6 text-secondary-black">
                 <h3>{product.title}</h3>
                 <p className="leading-normal">{product.text}</p>
                 <div
@@ -46,11 +48,15 @@ const FeaturedProduct = () => {
                   <p className="font-medium leading-normal ml-2">
                     64 major creators
                   </p>
-                  <img
-                    src={ArrowBlack}
-                    className="max-w-full border border-secondary-black py-5 px-3 rounded-full"
-                    alt=""
-                  />
+                  <div className="border border-secondary-black p-3 rounded-full">
+                    <BsArrowRight
+                      style={{
+                        color: "#616161",
+                        fontSize: "35px",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

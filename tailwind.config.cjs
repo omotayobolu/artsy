@@ -21,6 +21,7 @@ module.exports = {
       "light-blue": "rgba(121,184,210,100%)",
       orange: "rgba(192,86,9,49%)",
       grey: "#aeaeae",
+      grey2: "#F4F2F2",
       "light-grey": "#e2e2e2",
     },
     screens: {

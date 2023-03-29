@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Search from "../assets/images/search icon.png";
-import Cart from "../assets/images/cart icon.png";
-import Notifications from "../assets/images/notification icon.png";
+import { BiSearch } from "react-icons/bi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { HiOutlineBell } from "react-icons/hi";
 
 const Navbar = () => {
   return (
@@ -35,9 +35,11 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="flex flex-row items-center gap-6">
-          <img src={Search} alt="" />
-          <img src={Cart} alt="" />
-          <img src={Notifications} alt="" />
+          <BiSearch style={{ fontSize: "30px", color: "#333333" }} />
+          <AiOutlineShoppingCart
+            style={{ fontSize: "30px", color: "#333333" }}
+          />
+          <HiOutlineBell style={{ fontSize: "30px", color: "#333333" }} />
         </div>
       </div>
     </header>

@@ -49,10 +49,6 @@
 }
 
 @layer components {
-  .container {
-    @apply lg:mx-[8%];
-  }
-
   .link {
     @apply text-lg font-normal text-primary-black;
   }
@@ -63,10 +59,6 @@
 
   .product:nth-child(2) > div {
     @apply flex flex-row-reverse;
-  }
-
-  .arrows img {
-    @apply bg-secondary-white p-5 drop-shadow-[7.77px_7.77px_11.66px_rgba(0,0,0,15%)] blur-[15.54] rounded-full cursor-pointer;
   }
 
   .creators li {
