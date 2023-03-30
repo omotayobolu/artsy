@@ -46,6 +46,15 @@
   a {
     @apply cursor-pointer;
   }
+
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    @apply h-4 w-4 bg-dark-grey rounded-[5px] cursor-pointer;
+  }
+
+  input[type="checkbox"]:checked {
+    @apply bg-tick bg-no-repeat bg-center bg-contain p-2;
+  }
 }
 
 @layer components {
@@ -67,5 +76,13 @@
 
   .footer-link {
     @apply text-lg text-primary-black cursor-pointer;
+  }
+
+  .category {
+    @apply my-1 flex gap-2 items-center text-primary-black;
+  }
+
+  .filter {
+    @apply flex flex-row items-center justify-between cursor-pointer;
   }
 }

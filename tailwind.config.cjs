@@ -12,6 +12,7 @@ module.exports = {
       base: "14px",
     },
     colors: {
+      "pure-balck": "#000000",
       "primary-black": "#292929",
       "secondary-black": "#333333",
       white: "#ffffff",
@@ -23,6 +24,7 @@ module.exports = {
       grey: "#aeaeae",
       grey2: "#F4F2F2",
       "light-grey": "#e2e2e2",
+      "dark-grey": "#d9d9d9",
     },
     screens: {
       sm: "640px",
@@ -30,7 +32,11 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        tick: "url('/src/assets/images/tick.png')",
+      },
+    },
   },
   plugins: [],
 };
