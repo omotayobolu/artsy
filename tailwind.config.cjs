@@ -12,7 +12,7 @@ module.exports = {
       base: "14px",
     },
     colors: {
-      "pure-balck": "#000000",
+      "pure-black": "#000000",
       "primary-black": "#292929",
       "secondary-black": "#333333",
       white: "#ffffff",
@@ -35,6 +35,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         tick: "url('/src/assets/images/tick.png')",
+      },
+      dropShadow: {
+        marketplace: "4px 4px 64px rgba(0,0,0,10%)",
       },
     },
   },

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import SearchFilter from "../../assets/images/searchFilter.png";
 import filter from "../../assets/images/filter.png";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
@@ -18,16 +17,8 @@ const Filter = () => {
   });
 
   return (
-    <div className="">
-      <div className="relative">
-        <input
-          className="w-full bg-grey2 rounded-2xl p-[10px] pl-12 placeholder:text-md"
-          type="text"
-          placeholder="Search"
-        />
-        <img className="absolute top-0 left-0" src={SearchFilter} alt="" />
-      </div>
-      <div className="mt-10">
+    <div>
+      <div>
         <div className="flex flex-row items-center gap-3">
           <img src={filter} alt="" />
           <h3 className="font-medium text-primary-black">Filter</h3>
