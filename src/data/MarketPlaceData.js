@@ -10,7 +10,7 @@ import Beverly from "../assets/images/beverly.png";
 
 const MarketPlaceData = [
   {
-    id: "01",
+    id: 1,
     name: "Philomena '22",
     type: "Painting",
     location: "Spain",
@@ -24,7 +24,7 @@ const MarketPlaceData = [
     price: 39,
   },
   {
-    id: "02",
+    id: 2,
     name: "Boolean Egyptian",
     type: "Painting",
     location: "Egypt",
@@ -38,7 +38,7 @@ const MarketPlaceData = [
     price: 205,
   },
   {
-    id: "03",
+    id: 3,
     name: "Blanc",
     type: "Painting",
     location: "Denmark",
@@ -52,7 +52,7 @@ const MarketPlaceData = [
     price: 120,
   },
   {
-    id: "04",
+    id: 4,
     name: "Ellipsia",
     type: "Picture",
     location: "Mexico",
@@ -66,7 +66,7 @@ const MarketPlaceData = [
     price: 50,
   },
   {
-    id: "05",
+    id: 5,
     name: "The Lawmakers",
     type: "Painting",
     location: "Italy",
@@ -80,7 +80,7 @@ const MarketPlaceData = [
     price: 150,
   },
   {
-    id: "06",
+    id: 6,
     name: "Veil",
     type: "Painting",
     location: "New York",
@@ -94,7 +94,7 @@ const MarketPlaceData = [
     price: 75,
   },
   {
-    id: "07",
+    id: 7,
     name: "Alternating",
     type: "Oil Painting",
     location: "Sweeden",
@@ -108,7 +108,7 @@ const MarketPlaceData = [
     price: 50,
   },
   {
-    id: "08",
+    id: 8,
     name: "Rosemary '22",
     type: "Painting",
     location: "Germany",
@@ -122,7 +122,7 @@ const MarketPlaceData = [
     price: 250,
   },
   {
-    id: "09",
+    id: 9,
     name: "Beverly",
     type: "Painting",
     location: "New York",

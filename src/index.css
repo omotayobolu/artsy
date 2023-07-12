@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/Fonts/Satoshi-Regular.otf") format("opentype");
+}
+
 @layer base {
   * {
     margin: 0;
@@ -11,16 +16,7 @@
   }
 
   html {
-    font-family: STIX Two Text, sans-serif;
     background-color: #ffffff;
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: STIX Two Text;
   }
 
   h1 {
@@ -36,11 +32,11 @@
   }
 
   h4 {
-    @apply lg:text-lg;
+    @apply lg:text-lg font-medium;
   }
 
   p {
-    @apply xl:text-md text-sm;
+    @apply xl:text-md text-sm font-normal;
   }
 
   a {

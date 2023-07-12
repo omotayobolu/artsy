@@ -10,6 +10,7 @@ import "./index.css";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home/Home";
 import MarketPlace from "./pages/MarketPlace/MarketPlace";
+import MarketPlaceProducts from "./pages/MarketPlace/MarketPlaceProducts";
 import Auctions from "./pages/Auctions";
 import Drop from "./pages/Drop";
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "marketplace",
         element: <MarketPlace />,
+      },
+      {
+        path: "marketplace/editorials/:id",
+        element: <MarketPlaceProducts />,
       },
       {
         path: "auctions",

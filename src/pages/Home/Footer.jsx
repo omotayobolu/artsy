@@ -15,12 +15,12 @@ const Footer = () => {
         <div className="flex flex-row items-center gap-6">
           <input
             type="email"
-            className="border border-secondary-black px-12 py-4 placeholder:uppercase text-secondary-black text-sm"
+            className="border border-secondary-black px-12 py-2 placeholder:uppercase placeholder:text-base text-secondary-black text-sm"
             name=""
             id=""
             placeholder="Enter your email"
           />
-          <PrimaryBtn />
+          <PrimaryBtn className="uppercase text-sm">Subscribe</PrimaryBtn>
         </div>
       </div>
       <div className="my-[5%] flex flex-row items-center justify-between">

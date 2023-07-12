@@ -1,12 +1,14 @@
 import React from "react";
 import Filter from "./Filter";
-import MarketPlaceProducts from "./MarketPlaceProducts";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import Market from "../../data/MarketPlaceData";
 
 const MarketPlace = () => {
+
   return (
-    <section id="marketplace">
+    <div id="marketplace">
       <div className="flex flex-row items-center gap-10 lg:my-[5%] lg:mx-[8%]">
         <div className="relative">
           <input
@@ -38,10 +40,29 @@ const MarketPlace = () => {
           <Filter />
         </div>
         <div className="lg:w-[80%]">
-          <MarketPlaceProducts />
+          <div className="w-full flex flex-row items-center justify-between no-wrap lg:flex-wrap">
+            {Market.map((product) => (
+              <Link
+                to={"/marketplace/editorials/" + product.id}
+                key={product.id}
+              >
+                <div className="bg-white my-8 drop-shadow-marketplaceproduct rounded-t-xl">
+                  <img src={product.image} alt={product.name} />
+                  <div className="flex flex-col gap-3 p-4">
+                    <p className="my-3 text-sm text-secondary-black uppercase font-normal">
+                      {product.name}
+                    </p>
+                    <span className="text-md font-bold text-secondary-black">
+                      ${product.price.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
