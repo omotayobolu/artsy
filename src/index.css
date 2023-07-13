@@ -74,11 +74,11 @@
 
 @layer components {
   .link {
-    @apply lg:text-lg text-secondary-black text-md font-normal;
+    @apply md:text-lg text-secondary-black text-md font-normal;
   }
 
   .link.active {
-    @apply lg:text-lg text-lg font-medium border-b-2 border-b-primary-black;
+    @apply md:text-lg text-lg font-medium border-b-2 border-b-primary-black;
   }
 
   .product:nth-child(2) > div {

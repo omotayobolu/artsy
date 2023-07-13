@@ -60,14 +60,8 @@ const Navbar = () => {
               to={`/home`}
               className={({ isActive }) =>
                 isActive
-                  ? `${
-                      mobileNav === "open"
-                        ? "font-medium"
-                        : " lg:text-lg text-lg  border-b-2 border-b-primary-black"
-                    } `
-                  : `${
-                      mobileNav === "open" ? "font-medium text-lg link" : "link"
-                    } `
+                  ? "active link"
+                  : `link ${mobileNav === "open" && "font-medium"} text-lg`
               }
               onClick={() => setMobileNav("close")}
             >
