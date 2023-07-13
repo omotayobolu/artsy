@@ -28,7 +28,7 @@
   }
 
   h3 {
-    @apply lg:text-xl font-bold;
+    @apply lg:text-xl text-lg font-bold;
   }
 
   h4 {
@@ -36,7 +36,7 @@
   }
 
   p {
-    @apply xl:text-md text-sm font-normal;
+    @apply lg:text-md text-sm font-normal;
   }
 
   a {
@@ -74,11 +74,11 @@
 
 @layer components {
   .link {
-    @apply xl:text-lg text-md font-normal text-primary-black;
+    @apply lg:text-lg text-secondary-black text-md font-normal;
   }
 
   .link.active {
-    @apply xl:text-lg text-md font-medium border-b-2 border-b-primary-black;
+    @apply lg:text-lg text-lg font-medium border-b-2 border-b-primary-black;
   }
 
   .product:nth-child(2) > div {
