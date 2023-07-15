@@ -20,11 +20,11 @@
   }
 
   h1 {
-    @apply text-3xl;
+    @apply lg:text-3xl md:text-2xl text-xl leading-10;
   }
 
   h2 {
-    @apply lg:text-2xl font-medium;
+    @apply lg:text-2xl sm:text-xl text-lg font-medium;
   }
 
   h3 {
@@ -82,11 +82,11 @@
   }
 
   .product:nth-child(2) > div {
-    @apply flex flex-row-reverse;
+    @apply flex lg:flex-row-reverse;
   }
 
   .creators li {
-    @apply lg:text-xl leading-normal font-normal;
+    @apply lg:text-xl text-lg lg:m-0 mx-2 leading-normal font-normal;
   }
 
   .footer-link {

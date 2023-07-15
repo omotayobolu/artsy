@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import UpcomingAuctionsData from "../../data/UpcomingAuctionsData";
-import BlueArrow from "../../assets/images/arrow-blue.png";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { BsArrowRight } from "react-icons/bs";
 
 const UpcomingAuctions = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,12 +25,11 @@ const UpcomingAuctions = () => {
 
   return (
     <>
-      {" "}
       <div className="lg:px-[8%] py-[5%] bg-gradient-to-r from-blue via-light-blue to-orange">
-        <h2 className="text-[40px] text-white leading-normal">
+        <h2 className="text-[40px] text-white leading-normal lg:block hidden ">
           See Upcoming Auctions and Exhibitions
         </h2>
-        <hr className="w-[55%] text-white" />
+        <hr className="w-[55%] hidden lg:block text-white" />
         <div
           className="my-6 p-8 md:pt-[30%] text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,52%)] flex flex-row justify-between"
           style={{
@@ -38,30 +37,35 @@ const UpcomingAuctions = () => {
           }}
         >
           {/* <img src={UpcomingAuctionsData[currentSlide].url} alt="" /> */}
-          <div className="flex flex-row items-end gap-2 w-[70%]">
+          <div className="flex flex-row lg:items-end items-center gap-2">
             <span className="text-3xl">
               {UpcomingAuctionsData[currentSlide].id}
             </span>
-            <div>
-              <h3 className="font-normal">
-                {UpcomingAuctionsData[currentSlide].title}
-              </h3>
-              <p className="font-normal uppercase text-[0.9rem] mb-4">
-                {UpcomingAuctionsData[currentSlide].date}
-              </p>
-              <p className="font-medium text-base uppercase">
-                {UpcomingAuctionsData[currentSlide].desc}
-              </p>
+            <div className="flex lg:flex-row flex-col gap-4 items-end justify-between">
+              <div className="flex flex-col gap-6 lg:w-[70%] w-full">
+                <p
+                  className="text-lg leading-normal
+                "
+                >
+                  {UpcomingAuctionsData[currentSlide].title}
+                </p>
+                <p className="font-normal uppercase text-[0.9rem]">
+                  {UpcomingAuctionsData[currentSlide].date}
+                </p>
+                <p className="font-medium text-base uppercase">
+                  {UpcomingAuctionsData[currentSlide].desc}
+                </p>
+              </div>
+              <div className="md:text-md text-sm flex flex-row items-end gap-4">
+                <a className="pb-[1px] border-b border-white">See more</a>
+                <button className="py-1 px-2 rounded-md border border-white">
+                  Set a reminder
+                </button>
+              </div>
             </div>
           </div>
-          <div className="text-md flex flex-row items-end gap-4">
-            <a className="pb-[1px] border-b border-white">See more</a>
-            <button className="py-1 px-2 rounded-md border border-white">
-              Set a reminder
-            </button>
-          </div>
         </div>
-        <div className="flex flex-row justify-between items-center my-4">
+        <div className="lg:flex hidden flex-row justify-between items-center my-4">
           <div className="relative bg-grey w-[200px] h-[6px]">
             <span
               className={`absolute bg-white w-[50px] h-[6px] rounded-md
@@ -93,18 +97,22 @@ const UpcomingAuctions = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white md:my-[10%]">
+      <div className="bg-white md:my-[10%] my-[8%]">
         <hr className="border-t- border-secondary-black" />
         <Link to={"/marketplace"}>
-          <div className="flex items-center justify-between lg:px-[8%] py-4">
+          <div className="flex items-center justify-between lg:px-[8%] sm:px-[5%] px-[3%] py-4">
             <h2 className="text-secondary-black">Explore marketplace</h2>
-            <img src={BlueArrow} alt="" />
+            <div className="border border-secondary-black p-3 rounded-full">
+              <BsArrowRight className="lg:text-[40px] text-[20px] text-[#616161] cursor-pointer" />
+            </div>
           </div>
         </Link>
         <hr className="border-t- border-secondary-black" />
-        <div className="flex items-center justify-between lg:px-[8%] py-4">
+        <div className="flex items-center justify-between lg:px-[8%] sm:px-[5%] px-[3%] py-4">
           <h2 className="text-secondary-black">See Auctions</h2>
-          <img src={BlueArrow} alt="" />
+          <div className="border border-secondary-black p-3 rounded-full">
+            <BsArrowRight className="lg:text-[40px] text-[20px] text-[#616161] cursor-pointer" />
+          </div>
         </div>
 
         <hr className="border-t- border-secondary-black" />
