@@ -107,14 +107,9 @@ const Navbar = () => {
             mobileNav === "open" && "hidden"
           }`}
         >
-          <BiSearch style={{ fontSize: "30px", color: "#333333" }} />
-          <AiOutlineShoppingCart
-            style={{ fontSize: "30px", color: "#333333" }}
-          />
-          <HiOutlineBell
-            style={{ fontSize: "30px", color: "#333333" }}
-            className="sm:block hidden"
-          />
+          <BiSearch className="lg:block hidden text-[30px] text-secondary-black" />
+          <AiOutlineShoppingCart className="text-[30px] text-secondary-black" />
+          <HiOutlineBell className="lg:block hidden text-[30px] text-secondary-black" />
         </div>
       </div>
     </header>

@@ -1,7 +1,7 @@
 import React from "react";
 import Creators from "./Creators";
 import FeaturedProduct from "./FeaturedProduct";
-import Footer from "./Footer";
+import HomeFooter from "./HomeFooter";
 import Hero from "./Hero";
 import UpcomingAuctions from "./UpcomingAuctions";
 
@@ -12,7 +12,7 @@ const Home = () => {
       <FeaturedProduct />
       <UpcomingAuctions />
       <Creators />
-      <Footer />
+      <HomeFooter />
     </section>
   );
 };

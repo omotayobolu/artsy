@@ -37,7 +37,7 @@ module.exports = {
       },
       dropShadow: {
         marketplace: "4px 4px 64px rgba(0,0,0,10%)",
-        marketplaceproduct: "0 34px 68px rgba(217,225,244,36%)",
+        marketplaceproduct: "0 34px 68px rgba(217,225,244,0.36)",
       },
     },
   },
