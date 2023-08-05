@@ -5,6 +5,10 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+
+import { Provider } from "react-redux";
+import store from "./store/index";
+
 import App from "./App";
 import "./index.css";
 import ErrorPage from "./pages/ErrorPage";
@@ -13,6 +17,7 @@ import MarketPlace from "./pages/MarketPlace/MarketPlace";
 import MarketPlaceProducts from "./pages/MarketPlace/MarketPlaceProducts";
 import Auctions from "./pages/Auctions";
 import Drop from "./pages/Drop";
+import Cart from "./pages/Cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -44,12 +49,16 @@ const router = createBrowserRouter([
         path: "drop",
         element: <Drop />,
       },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </Provider>
 );

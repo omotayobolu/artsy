@@ -12,7 +12,7 @@ const Creators = () => {
           <div className="relative bg-grey h-[200px] lg:block hidden w-[10px] rounded-lg">
             <span className="absolute bottom-0 bg-primary-black h-[40px] w-[10px] rounded-lg"></span>
           </div>
-          <ul className="creators overflow-hidden lg:list-none list-disc flex lg:flex-col flex-row items-center justify-center gap-6 mt-[-5%]">
+          <ul className="creators hidden lg:list-none list-disc lg:flex lg:flex-col flex-row items-center justify-center gap-6 mt-[-5%]">
             <li>Editorial</li>
             <li>Fashion</li>
             <li>Lifestyle</li>

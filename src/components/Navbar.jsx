@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { HiOutlineBell } from "react-icons/hi";
@@ -108,7 +108,9 @@ const Navbar = () => {
           }`}
         >
           <BiSearch className="lg:block hidden text-[30px] text-secondary-black" />
-          <AiOutlineShoppingCart className="text-[30px] text-secondary-black" />
+          <Link to="cart">
+            <AiOutlineShoppingCart className="text-[30px] text-secondary-black" />
+          </Link>
           <HiOutlineBell className="lg:block hidden text-[30px] text-secondary-black" />
         </div>
       </div>
