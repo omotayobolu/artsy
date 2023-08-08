@@ -100,4 +100,8 @@
   .filter {
     @apply flex flex-row items-center justify-between cursor-pointer;
   }
+
+  .cart-link {
+    @apply lg:text-md pb-2;
+  }
 }

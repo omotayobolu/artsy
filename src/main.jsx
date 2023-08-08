@@ -6,8 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Provider } from "react-redux";
-import store from "./store/index";
+// import { Provider } from "react-redux";
+// import store from "./store/index";
 
 import App from "./App";
 import "./index.css";
@@ -18,6 +18,9 @@ import MarketPlaceProducts from "./pages/MarketPlace/MarketPlaceProducts";
 import Auctions from "./pages/Auctions";
 import Drop from "./pages/Drop";
 import Cart from "./pages/Cart/Cart";
+import ShoppingCart from "./pages/Cart/ShoppingCart";
+import ShippingDetails from "./pages/Cart/ShippingDetails";
+import PaymentDetails from "./pages/Cart/PaymentDetails";
 
 const router = createBrowserRouter([
   {
@@ -52,13 +55,27 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+        children: [
+          {
+            path: "shopping-cart",
+            element: <ShoppingCart />,
+          },
+          {
+            path: "shipping-details",
+            element: <ShippingDetails />,
+          },
+          {
+            path: "payment-details",
+            element: <PaymentDetails />,
+          },
+        ],
       },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </Provider>
+  </React.StrictMode>
 );
