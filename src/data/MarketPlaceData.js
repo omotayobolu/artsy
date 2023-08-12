@@ -22,6 +22,7 @@ const MarketPlaceData = [
     status: "Available for sale",
     image: ladySun,
     price: 39,
+    size: "300ft",
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ const MarketPlaceData = [
     status: "Not Availale for sale",
     image: BooleanEgyptian,
     price: 205,
+    size: "200ft",
   },
   {
     id: 3,
@@ -50,6 +52,7 @@ const MarketPlaceData = [
     status: "Availablle for sale",
     image: Blanc,
     price: 120,
+    size: "230ft",
   },
   {
     id: 4,
@@ -64,6 +67,7 @@ const MarketPlaceData = [
     status: "Available for sale",
     image: Ellipsia,
     price: 50,
+    size: "200ft",
   },
   {
     id: 5,
@@ -78,6 +82,7 @@ const MarketPlaceData = [
     status: "Not Available for sale",
     image: Lawmakers,
     price: 150,
+    size: "400ft",
   },
   {
     id: 6,
@@ -92,6 +97,7 @@ const MarketPlaceData = [
     status: "Not available for sale",
     image: Veil,
     price: 75,
+    size: "300ft",
   },
   {
     id: 7,
@@ -106,6 +112,7 @@ const MarketPlaceData = [
     status: "Available for sale",
     image: Alternating,
     price: 50,
+    size: "200ft",
   },
   {
     id: 8,
@@ -120,6 +127,7 @@ const MarketPlaceData = [
     status: "Avaiable for public viewing",
     image: Rosemary,
     price: 250,
+    size: "300ft",
   },
   {
     id: 9,
@@ -134,6 +142,7 @@ const MarketPlaceData = [
     status: "Available for sale",
     image: Beverly,
     price: 125,
+    size: "300ft",
   },
 ];
 

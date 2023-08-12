@@ -2,25 +2,10 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Cart = () => {
-  // const [shoppingCart, setShoppingCart] = useState("open");
-  // const [shippingDetails, setShippingDetails] = useState("close");
-  // const [paymentDetails, setPaymentDetails] = useState("close");
-
-  // const toggleShoppingCart = () => {
-  //   if (shoppingCart === "open") {
-  //     setShoppingCart("close");
-  //   } else {
-  //     setShoppingCart("open");
-  //   }
-  // };
-
   return (
-    <section className="lg:my-[2%] lg:mx-[8%] sm:mx-[5%] mx-[3%]">
+    <section className="lg:my-[1%] lg:mx-[8%] sm:mx-[5%] mx-[3%]">
       <div className="grid place-items-center">
-        <ul
-          className="flex flex-row items-center justify-center gap-8 border-b border-[#747474]
-"
-        >
+        <ul className="flex flex-row items-center justify-center gap-8 border-b border-[#747474] border-opacity-30">
           <NavLink
             to="shopping-cart"
             className={({ isActive }) =>

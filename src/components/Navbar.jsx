@@ -18,7 +18,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="py-6">
+    <header className="py-8">
       <div
         className={`lg:mx-[8%] sm:mx-[5%] mx-[3%] ${
           mobileNav === "close" && "flex flex-row justify-between items-center"

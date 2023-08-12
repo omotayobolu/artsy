@@ -28,8 +28,8 @@ const MarketPlaceProducts = () => {
 
   const removeNumber = () => {
     setNumber(number - 1);
-    if (number === 0) {
-      setNumber(0);
+    if (number === 1) {
+      setNumber(1);
     }
   };
 
@@ -79,7 +79,7 @@ const MarketPlaceProducts = () => {
               <div className="text-[30px] my-2 flex flex-row items-center gap-4 text-secondary-black">
                 <span
                   className={`cursor-pointer font-medium ${
-                    number === 0 ? "opacity-50" : ""
+                    number === 1 ? "opacity-50" : ""
                   }`}
                   onClick={removeNumber}
                 >

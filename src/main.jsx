@@ -6,8 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// import { Provider } from "react-redux";
-// import store from "./store/index";
+import { Provider } from "react-redux";
+import store from "./store/index";
 
 import App from "./App";
 import "./index.css";
@@ -57,6 +57,10 @@ const router = createBrowserRouter([
         element: <Cart />,
         children: [
           {
+            index: true,
+            element: <Navigate to="/cart/shopping-cart" />,
+          },
+          {
             path: "shopping-cart",
             element: <ShoppingCart />,
           },
@@ -75,7 +79,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </Provider>
 );

@@ -32,7 +32,7 @@
   }
 
   h4 {
-    @apply lg:text-lg font-medium;
+    @apply lg:text-lg text-md font-medium;
   }
 
   p {
