@@ -52,13 +52,13 @@ const MarketPlace = () => {
                 to={"/marketplace/editorials/" + product.id}
                 key={product.id}
               >
-                <div className="bg-white my-8 drop-shadow-marketplaceproduct rounded-xl p-3">
+                <div className="bg-white my-8 drop-shadow-marketplaceproduct rounded-xl">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full"
+                    className="max-w-full w-full"
                   />
-                  <div className="flex md:flex-col flex-row justify-between items-center md:items-start gap-2 ">
+                  <div className="flex md:flex-col flex-row justify-between items-center md:items-start gap-2 p-3 ">
                     <p className="my-3 text-sm text-secondary-black uppercase font-normal">
                       {product.name}
                     </p>

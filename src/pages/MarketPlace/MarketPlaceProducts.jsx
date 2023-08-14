@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import MarketData from "../../data/MarketPlaceData";
 import Price from "../../assets/images/price.png";
@@ -6,8 +7,25 @@ import PrimaryBtn from "../../components/PrimaryBtn";
 import { BsArrowRight } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { cartActions } from "../../store/cart-slice";
 
 const MarketPlaceProducts = () => {
+  const dispatch = useDispatch();
+
+  const addProductToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        creator: product.creator,
+        size: product.size,
+        image: product.image,
+        quantity: number,
+      })
+    );
+  };
+
   const { id } = useParams();
   const product = MarketData.find((item) => item.id === Number(id));
 
@@ -94,7 +112,10 @@ const MarketPlaceProducts = () => {
                 </span>
               </div>
               <div className="lg:my-6 flex flex-row items-center gap-6">
-                <PrimaryBtn className="flex items-center gap-2 text-sm">
+                <PrimaryBtn
+                  className="flex items-center gap-2 text-sm"
+                  onClick={addProductToCartHandler}
+                >
                   Add to cart <BsArrowRight color="#F5F4F4" />
                 </PrimaryBtn>
                 <div className="border border-primary-black py-2 px-3">

@@ -19,13 +19,15 @@ const cartSlice = createSlice({
           id: newProduct.id,
           name: newProduct.name,
           size: newProduct.size,
-          price: newProduct.price,
-          quantity: 1,
+          price: newProduct.price * newProduct.quantity,
+          quantity: newProduct.quantity,
           creator: newProduct.creator,
         });
+        state.totalPrice = state.products[0].price;
       } else {
         existingProduct.quantity++;
         existingProduct.price = existingProduct.price + newProduct.price;
+        state.totalPrice = state.totalPrice + newProduct.price;
       }
     },
   },
