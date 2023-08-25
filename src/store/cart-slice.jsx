@@ -13,22 +13,58 @@ const cartSlice = createSlice({
       const existingProduct = state.products.find(
         (product) => product.id === newProduct.id
       ); //checks if product exists
-      state.totalProducts++; //increase no. of total products
       if (!existingProduct) {
         state.products.push({
           id: newProduct.id,
           name: newProduct.name,
           size: newProduct.size,
-          price: newProduct.price * newProduct.quantity,
+          itemPrice: newProduct.price, //actual price
+          price: newProduct.price * newProduct.quantity, //price if we add more than 1 quantity at a time
           quantity: newProduct.quantity,
           creator: newProduct.creator,
         });
-        state.totalPrice = state.products[0].price;
       } else {
-        existingProduct.quantity++;
-        existingProduct.price = existingProduct.price + newProduct.price;
-        state.totalPrice = state.totalPrice + newProduct.price;
+        existingProduct.quantity =
+          existingProduct.quantity + newProduct.quantity;
+        existingProduct.price =
+          existingProduct.price + newProduct.price * newProduct.quantity;
       }
+    },
+    removeItemFromCart(state, action) {
+      const id = action.payload;
+      state.products = state.products.filter((product) => product.id !== id);
+    },
+    increaseQuantity(state, action) {
+      const { id, quantity, itemPrice } = action.payload;
+      const product = state.products.findIndex((item) => item.id === id);
+      state.products[product].quantity = quantity + 1;
+      state.products[product].price = state.products[product].price + itemPrice;
+    },
+    decreaseQuantity(state, action) {
+      const { id, quantity, itemPrice } = action.payload;
+      const product = state.products.findIndex((item) => item.id === id);
+      state.products[product].quantity = quantity - 1;
+      state.products[product].price = state.products[product].price - itemPrice;
+    },
+    total(state, action) {
+      let { totalPrice, totalQuantity } = state.products.reduce(
+        (cartTotal, cartProduct) => {
+          const { price, quantity } = cartProduct;
+          const itemTotal = price;
+
+          cartTotal.totalPrice += itemTotal;
+          cartTotal.totalQuantity += quantity;
+
+          return cartTotal;
+        },
+        {
+          totalPrice: 0,
+          totalQuantity: 0, //initial values
+        }
+      );
+
+      state.totalPrice = totalPrice;
+      state.totalProducts = totalQuantity;
     },
   },
 });

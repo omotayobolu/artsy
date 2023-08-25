@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import PrimaryBtn from "../../components/PrimaryBtn";
@@ -7,27 +7,37 @@ import CartSummary from "../../components/CartSummary";
 import TestImage from "../../assets/images/egyptians.png";
 import { CiCircleRemove } from "react-icons/ci";
 import { cartActions } from "../../store/cart-slice";
+import { getItem } from "localforage";
 
 const ShoppingCart = () => {
-  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.products); //gets the cart list
   const totalProducts = useSelector((state) => state.cart.totalProducts);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(cartActions.total());
+  }, [cartItems]);
 
   const shipping = totalPrice / 100;
 
-  // const increaseQuantity = () => {
-  //   dispatch(
-  //     cartActions.addItemToCart({
-  //       id,
-  //       name,
-  //       price,
-  //       creator,
-  //       size,
-  //       quantity: quantity,
-  //     })
-  //   );
+  // const addItemHandler = (product) => {
+  //   dispatch(cartActions.addItemToCart(product));
   // };
+
+  const removeItemHandler = (id) => {
+    dispatch(cartActions.removeItemFromCart(id));
+  };
+
+  const increaseQuantityHandler = (product) => {
+    dispatch(cartActions.increaseQuantity(product));
+  };
+
+  const decreaseQuantityHandler = (product) => {
+    dispatch(cartActions.decreaseQuantity(product));
+  };
+
+  // dispatch(cartActions.summary());
 
   return (
     <section className="py-8">
@@ -57,20 +67,31 @@ const ShoppingCart = () => {
                         </p>
                         <div className="text-[30px]  flex flex-row items-center gap-4 text-secondary-black">
                           <span
-                            className={`cursor-pointer font-medium ${
-                              item.quantity === 1 ? "opacity-50" : ""
-                            }`}
+                            className="cursor-pointer font-medium"
+                            onClick={
+                              item.quantity > 1
+                                ? () => decreaseQuantityHandler(item)
+                                : () => removeItemHandler(item.id)
+                            } //removes item from cart when quantity is less than 1
                           >
                             -
                           </span>
                           <p className="font-medium lg:text-[30px]">
                             {item.quantity}
                           </p>
-                          <span className="cursor-pointer font-medium">+</span>
+                          <span
+                            className="cursor-pointer font-medium"
+                            onClick={() => increaseQuantityHandler(item)}
+                          >
+                            +
+                          </span>
                         </div>
                       </div>
                       <div className="max-w-full flex flex-col  justify-between">
-                        <CiCircleRemove className="self-center cursor-pointer text-xl text-grey3" />
+                        <CiCircleRemove
+                          onClick={() => removeItemHandler(item.id)}
+                          className="self-center cursor-pointer text-xl text-grey3"
+                        />
                         <h3 className="self-end">${item.price}</h3>
                       </div>
                     </div>
@@ -123,7 +144,7 @@ const ShoppingCart = () => {
         </div>
       ) : (
         <div className="grid place-items-center">
-          <h2>Cart is empty</h2>
+          <h3>Cart is empty</h3>
         </div>
       )}
     </section>

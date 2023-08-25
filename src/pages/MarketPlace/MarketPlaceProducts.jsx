@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import MarketData from "../../data/MarketPlaceData";
+import { MarketPlaceData } from "../../data/MarketPlaceData";
 import Price from "../../assets/images/price.png";
 import PrimaryBtn from "../../components/PrimaryBtn";
 import { BsArrowRight } from "react-icons/bs";
@@ -17,6 +17,7 @@ const MarketPlaceProducts = () => {
       cartActions.addItemToCart({
         id: product.id,
         name: product.name,
+        itemPrice: product.price,
         price: product.price,
         creator: product.creator,
         size: product.size,
@@ -27,7 +28,7 @@ const MarketPlaceProducts = () => {
   };
 
   const { id } = useParams();
-  const product = MarketData.find((item) => item.id === Number(id));
+  const product = MarketPlaceData.find((item) => item.id === Number(id));
 
   // to format views
   function formatViews(views) {

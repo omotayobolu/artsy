@@ -8,7 +8,7 @@ import Alternating from "../assets/images/alternating.png";
 import Rosemary from "../assets/images/rosemary.png";
 import Beverly from "../assets/images/beverly.png";
 
-const MarketPlaceData = [
+export const MarketPlaceData = [
   {
     id: 1,
     name: "Philomena '22",
@@ -145,5 +145,3 @@ const MarketPlaceData = [
     size: "300ft",
   },
 ];
-
-export default MarketPlaceData;

@@ -3,8 +3,9 @@ import Filter from "./Filter";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import Market from "../../data/MarketPlaceData";
+import { MarketPlaceData } from "../../data/MarketPlaceData";
 import Footer from "../../components/Footer";
+import { startTransition } from "react";
 
 const MarketPlace = () => {
   const [marketProducts, setMarketProducts] = useState(6);
@@ -47,7 +48,7 @@ const MarketPlace = () => {
         </div>
         <div className="md:w-[80%] w-full">
           <div className="w-full flex md:flex-row flex-col items-center md:justify-between flex-wrap">
-            {Market.slice(0, marketProducts).map((product) => (
+            {MarketPlaceData.slice(0, marketProducts).map((product) => (
               <Link
                 to={"/marketplace/editorials/" + product.id}
                 key={product.id}
@@ -70,7 +71,7 @@ const MarketPlace = () => {
               </Link>
             ))}
           </div>
-          {marketProducts < Market.length && (
+          {marketProducts < MarketPlaceData.length && (
             <div className="my-10 flex justify-center items-center">
               <button
                 className="border border-secondary-black textsecondary-black text-[24px] rounded-xl font-medium px-8 py-2"
