@@ -10,16 +10,14 @@ import { cartActions } from "../../store/cart-slice";
 import { getItem } from "localforage";
 
 const ShoppingCart = () => {
-  const cartItems = useSelector((state) => state.cart.products); //gets the cart list
-  const totalProducts = useSelector((state) => state.cart.totalProducts);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const cart = useSelector((state) => state.cart); //gets the cart list
+  // const totalProducts = useSelector((state) => state.cart.totalProducts);
+  // const totalPrice = useSelector((state) => state.cart.totalPrice);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(cartActions.total());
-  }, [cartItems]);
-
-  const shipping = totalPrice / 100;
+  }, [cart.products]);
 
   // const addItemHandler = (product) => {
   //   dispatch(cartActions.addItemToCart(product));
@@ -41,11 +39,11 @@ const ShoppingCart = () => {
 
   return (
     <section className="py-8">
-      {cartItems.length > 0 ? (
+      {cart.products.length > 0 ? (
         <div>
           <div className="pt-4">
             <div className="flex flex-col">
-              {cartItems.map((item) => (
+              {cart.products.map((item) => (
                 <div
                   key={item.id}
                   className="py-6 border-[#747474] border-opacity-30 border-t-[0.3px]"
@@ -118,10 +116,10 @@ const ShoppingCart = () => {
                 <h4 className="text-grey3 font-normal">Products in cart:</h4>
                 <span className="text-primary-black text-lg font-normal">
                   {" "}
-                  {cartItems.length === 1
-                    ? cartItems[0].quantity
-                    : totalProducts}{" "}
-                  {cartItems[0].quantity > 1 || totalProducts > 1
+                  {cart.products.length === 1
+                    ? cart.products[0].quantity
+                    : cart.totalProducts}{" "}
+                  {cart.products[0].quantity > 1 || cart.totalProducts > 1
                     ? "items"
                     : "item"}
                 </span>
@@ -130,13 +128,13 @@ const ShoppingCart = () => {
                 <h4 className="text-grey3 font-normal">Shipping:</h4>
                 <span className="text-primary-black text-lg font-normal">
                   {" "}
-                  ${shipping}
+                  ${cart.shipping}
                 </span>
               </CartSummary>
               <CartSummary>
                 <h4 className="text-grey3 font-normal">Total:</h4>
                 <span className="text-primary-black text-lg font-normal">
-                  ${totalPrice + shipping}
+                  ${cart.totalPrice + cart.shipping}
                 </span>
               </CartSummary>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { MarketPlaceData } from "../../data/MarketPlaceData";
 import Price from "../../assets/images/price.png";
@@ -11,18 +11,21 @@ import { cartActions } from "../../store/cart-slice";
 
 const MarketPlaceProducts = () => {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
   const addProductToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
         id: product.id,
         name: product.name,
-        itemPrice: product.price,
+        actualPrice: product.price,
         price: product.price,
         creator: product.creator,
         size: product.size,
         image: product.image,
         quantity: number,
+        totalProducts: cart.totalProducts,
+        totalPrice: cart.totalPrice,
       })
     );
   };

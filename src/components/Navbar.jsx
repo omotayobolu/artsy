@@ -5,10 +5,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { HiOutlineBell } from "react-icons/hi";
 import Hamburger from "../assets/images/hamburger.png";
 import CloseNav from "../assets/images/close nav.png";
-// import { useSelector } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  // const products = useSelector((state) => state.cart.products);
+  const products = useSelector((state) => state.cart.products);
   const [mobileNav, setMobileNav] = useState("close");
 
   function switchNav(mobileNav) {
@@ -110,8 +110,11 @@ const Navbar = () => {
           }`}
         >
           <BiSearch className="lg:block hidden text-[30px] text-secondary-black" />
-          <Link to="cart">
+          <Link to="cart" className="relative">
             <AiOutlineShoppingCart className="text-[30px] text-secondary-black" />
+            {products.length > 0 && (
+              <div className="absolute top-0 right-[-3px] w-[5px] h-[5px] rounded-full bg-[#E31616]"></div>
+            )}
           </Link>
           <HiOutlineBell className="lg:block hidden text-[30px] text-secondary-black" />
         </div>

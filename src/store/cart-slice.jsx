@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     products: [],
     totalProducts: 0,
     totalPrice: 0,
+    shipping: 0,
   },
   reducers: {
     addItemToCart(state, action) {
@@ -18,7 +19,7 @@ const cartSlice = createSlice({
           id: newProduct.id,
           name: newProduct.name,
           size: newProduct.size,
-          itemPrice: newProduct.price, //actual price
+          actualPrice: newProduct.price, //actual price
           price: newProduct.price * newProduct.quantity, //price if we add more than 1 quantity at a time
           quantity: newProduct.quantity,
           creator: newProduct.creator,
@@ -35,16 +36,18 @@ const cartSlice = createSlice({
       state.products = state.products.filter((product) => product.id !== id);
     },
     increaseQuantity(state, action) {
-      const { id, quantity, itemPrice } = action.payload;
+      const { id, quantity, actualPrice } = action.payload;
       const product = state.products.findIndex((item) => item.id === id);
       state.products[product].quantity = quantity + 1;
-      state.products[product].price = state.products[product].price + itemPrice;
+      state.products[product].price =
+        state.products[product].price + actualPrice;
     },
     decreaseQuantity(state, action) {
-      const { id, quantity, itemPrice } = action.payload;
+      const { id, quantity, actualPrice } = action.payload;
       const product = state.products.findIndex((item) => item.id === id);
       state.products[product].quantity = quantity - 1;
-      state.products[product].price = state.products[product].price - itemPrice;
+      state.products[product].price =
+        state.products[product].price - actualPrice;
     },
     total(state, action) {
       let { totalPrice, totalQuantity } = state.products.reduce(
@@ -63,6 +66,7 @@ const cartSlice = createSlice({
         }
       );
 
+      state.shipping = totalPrice / 100;
       state.totalPrice = totalPrice;
       state.totalProducts = totalQuantity;
     },
