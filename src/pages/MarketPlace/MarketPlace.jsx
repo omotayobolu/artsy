@@ -11,7 +11,7 @@ const MarketPlace = () => {
   const [marketProducts, setMarketProducts] = useState(6);
 
   const DisplayAllProducts = () => {
-    setMarketProducts(Market.length);
+    setMarketProducts(MarketPlaceData.length);
   };
 
   return (
@@ -53,14 +53,14 @@ const MarketPlace = () => {
                 to={"/marketplace/editorials/" + product.id}
                 key={product.id}
               >
-                <div className="bg-white my-8 drop-shadow-marketplaceproduct rounded-xl">
+                <div className="bg-white my-8 drop-shadow-marketplaceproduct rounded-xl w-[240px] h-[430px]">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="max-w-full w-full"
+                    className="h-[280px] w-[240px] max-w-full rounded-t-xl"
                   />
-                  <div className="flex md:flex-col flex-row justify-between items-center md:items-start gap-2 p-3 ">
-                    <p className="my-3 text-sm text-secondary-black uppercase font-normal">
+                  <div className="flex md:flex-col flex-row  justify-between items-center md:items-start gap-2 p-3 ">
+                    <p className="my-3 text-sm whitespace-normal text-secondary-black uppercase font-normal">
                       {product.name}
                     </p>
                     <span className="text-md font-bold text-secondary-black">

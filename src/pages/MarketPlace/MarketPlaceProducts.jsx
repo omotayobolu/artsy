@@ -71,7 +71,7 @@ const MarketPlaceProducts = () => {
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full"
+              className="w-[525px] h-[600px] max-w-full"
             />
           </div>
           <div className="w-[50%]">

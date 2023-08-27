@@ -1,17 +1,7 @@
-import ladySun from "../assets/images/philomena.png";
-import BooleanEgyptian from "../assets/images/boolean-egyptian.png";
-import Blanc from "../assets/images/blanc.png";
-import Ellipsia from "../assets/images/ellipisa.png";
-import Lawmakers from "../assets/images/lawmakers.png";
-import Veil from "../assets/images/veil.png";
-import Alternating from "../assets/images/alternating.png";
-import Rosemary from "../assets/images/rosemary.png";
-import Beverly from "../assets/images/beverly.png";
-
 export const MarketPlaceData = [
   {
     id: 1,
-    name: "Philomena '22",
+    name: "The Starry Night",
     type: "Painting",
     location: "Spain",
     creator: "Vincent van Gogh",
@@ -20,13 +10,14 @@ export const MarketPlaceData = [
       "A famous post-impressionist painting depicting a night sky with swirling stars.",
     listing: "https://example.com/listing1",
     status: "Available for sale",
-    image: ladySun,
+    image:
+      "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
     price: 39,
     size: "300ft",
   },
   {
     id: 2,
-    name: "Boolean Egyptian",
+    name: "Mona lisa",
     type: "Painting",
     location: "Egypt",
     creator: "Learnado Da Vinci",
@@ -35,112 +26,119 @@ export const MarketPlaceData = [
       "One of the most famous portraits in the world, depicting a woman with a mysterious smile.",
     listing: "https://example.com/listing2",
     status: "Not Availale for sale",
-    image: BooleanEgyptian,
+    image:
+      "https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg",
     price: 205,
     size: "200ft",
   },
   {
     id: 3,
-    name: "Blanc",
+    name: "The Scream ",
     type: "Painting",
     location: "Denmark",
     creator: "Edvanch Moch",
     views: 1200,
     description:
-      "An iconic expressionist artwork capturing the existential angst of the modern world.",
+      "This expressionist painting is a depiction of a man's anguish, and it can be used to create a sense of anxiety or fear.",
     listing: "https://example.com/listing3",
     status: "Availablle for sale",
-    image: Blanc,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg",
     price: 120,
     size: "230ft",
   },
   {
     id: 4,
-    name: "Ellipsia",
+    name: "Guernica",
     type: "Picture",
     location: "Mexico",
     creator: "Pablo Picasso",
     views: 1500,
     description:
-      "A powerful anti-war painting depicting the horrors of the Spanish Civil War",
+      "This painting is a powerful anti-war statement, and it can be used to raise awareness of the issue of war.",
     listing: "https://example.com/listing3",
     status: "Available for sale",
-    image: Ellipsia,
+    image:
+      "https://cdn.britannica.com/79/91479-050-24F98E12/Guernica-canvas-Pablo-Picasso-Madrid-Museo-Nacional-1937.jpg",
     price: 50,
     size: "200ft",
   },
   {
     id: 5,
-    name: "The Lawmakers",
+    name: "The Birth of Venus",
     type: "Painting",
     location: "Italy",
     creator: "Sandro Boticelli",
     views: 700,
     description:
-      "A bronze painting representing 2 contemplative men in deep thoughts.",
+      " This Renaissance painting is a depiction of the goddess Venus emerging from the sea, and it can be used to create a sense of beauty and wonder.",
     listing: "https://example.com/listing3",
     status: "Not Available for sale",
-    image: Lawmakers,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7d/Botticelli_Venus.jpg",
     price: 150,
     size: "400ft",
   },
   {
     id: 6,
-    name: "Veil",
+    name: "The Thinker",
     type: "Painting",
     location: "New York",
     creator: "Andy Warhol",
     views: 1800,
     description:
-      "An iconic work of pop art consisting of 32 canvases featuring Campbell's Soup cans.",
+      "This sculpture is a depiction of a man deep in thought, and it can be used to represent contemplation or meditation.",
     listing: "https://example.com/listing3",
     status: "Not available for sale",
-    image: Veil,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mus%C3%A9e_Rodin_1.jpg",
     price: 75,
     size: "300ft",
   },
   {
     id: 7,
-    name: "Alternating",
+    name: "The Kiss",
     type: "Oil Painting",
     location: "Sweeden",
-    creator: "Vincent van Gogh",
+    creator: " Gustav Klimt",
     views: 2300,
     description:
-      " An iconic surrealist painting by Salvador Dalí featuring melting clocks in a dreamlike landscape.",
+      " This symbolist painting is known for its vibrant colors and intricate patterns, and it can be used to create a visually stunning effect.",
     listing: "https://example.com/lisitng",
     status: "Available for sale",
-    image: Alternating,
+    image: "https://www.gustav-klimt.com/images/paintings/The-Kiss.jpg",
     price: 50,
     size: "200ft",
   },
   {
     id: 8,
-    name: "Rosemary '22",
+    name: "The Great Wave off Kanagawa",
     type: "Painting",
     location: "Germany",
-    creator: "Vincent van Gogh",
+    creator: "Hokusai",
     views: 7000,
     description:
-      "A famous painting by Vincent van Gogh depicting a night sky filled with swirling stars and a small village below.",
+      "This Japanese woodblock print is a depiction of a giant wave crashing against the shore, and it can be used to create a sense of power and energy.",
     listing: "https://example.com/lisitng",
     status: "Avaiable for public viewing",
-    image: Rosemary,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/a/a5/Tsunami_by_hokusai_19th_century.jpg",
     price: 250,
     size: "300ft",
   },
   {
     id: 9,
-    name: "Beverly",
+    name: "Girl with a Pearl Earring",
     type: "Painting",
     location: "New York",
-    creator: "Salvador Dali",
+    creator: "Johannes Vermeer",
     views: 1500,
     description:
-      "An iconic surrealist painting by Salvador Dalí featuring melting clocks in a dreamlike landscape.",
+      "This Dutch Golden Age painting is a portrait of a young woman wearing a pearl earring, and it can be used to create a sense of mystery and intrigue.",
     listing: "https://example.com/lisitng",
     status: "Available for sale",
-    image: Beverly,
+    image:
+      "https://cdn.britannica.com/33/194733-050-4CF75F31/Girl-with-a-Pearl-Earring-canvas-Johannes-1665.jpg",
     price: 125,
     size: "300ft",
   },
