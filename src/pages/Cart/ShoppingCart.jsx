@@ -1,142 +1,30 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
+import React from "react";
+import { useSelector } from "react-redux";
 import PrimaryBtn from "../../components/PrimaryBtn";
 import { Link } from "react-router-dom";
-import CartSummary from "../../components/CartSummary";
-import TestImage from "../../assets/images/egyptians.png";
-import { CiCircleRemove } from "react-icons/ci";
-import { cartActions } from "../../store/cart-slice";
-import { getItem } from "localforage";
+import CartItems from "./CartItems";
+import CartTotals from "./CartTotals";
+import SecondaryBtn from "../../components/SecondaryBtn";
 
 const ShoppingCart = () => {
-  const cart = useSelector((state) => state.cart); //gets the cart list
-  // const totalProducts = useSelector((state) => state.cart.totalProducts);
-  // const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(cartActions.total());
-  }, [cart.products]);
-
-  // const addItemHandler = (product) => {
-  //   dispatch(cartActions.addItemToCart(product));
-  // };
-
-  const removeItemHandler = (id) => {
-    dispatch(cartActions.removeItemFromCart(id));
-  };
-
-  const increaseQuantityHandler = (product) => {
-    dispatch(cartActions.increaseQuantity(product));
-  };
-
-  const decreaseQuantityHandler = (product) => {
-    dispatch(cartActions.decreaseQuantity(product));
-  };
-
-  // dispatch(cartActions.summary());
-
+  const cart = useSelector((state) => state.cart); //gets all the cart details
   return (
     <section className="py-8">
       {cart.products.length > 0 ? (
         <div>
-          <div className="pt-4">
-            <div className="flex flex-col">
-              {cart.products.map((item) => (
-                <div
-                  key={item.id}
-                  className="py-6 border-[#747474] border-opacity-30 border-t-[0.3px]"
-                >
-                  <div className="flex flex-row items-center gap-8 w-full">
-                    <img
-                      src={item.image}
-                      className="w-[170px] h-[150px]"
-                      alt={item.name}
-                    />
-                    <div className="flex flex-row justify-between w-full">
-                      <div>
-                        <h4 className="font-medium">{item.name}</h4>
-                        <p className="text-grey3 font-normal my-2">
-                          {item.creator}
-                        </p>
-                        <p className="text-grey3 text-sm">
-                          Size: <span>{item.size}</span>
-                        </p>
-                        <div className="text-[30px]  flex flex-row items-center gap-4 text-secondary-black">
-                          <span
-                            className="cursor-pointer font-medium"
-                            onClick={
-                              item.quantity > 1
-                                ? () => decreaseQuantityHandler(item)
-                                : () => removeItemHandler(item.id)
-                            } //removes item from cart when quantity is less than 1
-                          >
-                            -
-                          </span>
-                          <p className="font-medium lg:text-[30px]">
-                            {item.quantity}
-                          </p>
-                          <span
-                            className="cursor-pointer font-medium"
-                            onClick={() => increaseQuantityHandler(item)}
-                          >
-                            +
-                          </span>
-                        </div>
-                      </div>
-                      <div className="max-w-full flex flex-col  justify-between">
-                        <CiCircleRemove
-                          onClick={() => removeItemHandler(item.id)}
-                          className="self-center cursor-pointer text-xl text-grey3"
-                        />
-                        <h3 className="self-end">${item.price}</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <CartItems />
           <hr style={{ color: "#747474", height: "0.3px", opacity: "0.3" }} />
           <div className="mt-8 flex flex-row items-center gap-16 w-full">
             <div className="w-[40%] grid gap-4 place-items-center">
               <PrimaryBtn className="text-md w-full py-4">
-                Proceed to checkout
+                <Link to="/cart/shipping-details">Proceed to checkout</Link>
               </PrimaryBtn>
-              <Link
-                to="/marketplace"
-                className="font-medium text-md border-b-2 border-secondary-black"
-              >
-                Continue Shopping
+              <Link to="/marketplace">
+                <SecondaryBtn>Continue Shopping</SecondaryBtn>
               </Link>
             </div>
-            <div className="w-[60%] flex flex-col gap-8">
-              <CartSummary>
-                <h4 className="text-grey3 font-normal">Products in cart:</h4>
-                <span className="text-primary-black text-lg font-normal">
-                  {" "}
-                  {cart.products.length === 1
-                    ? cart.products[0].quantity
-                    : cart.totalProducts}{" "}
-                  {cart.products[0].quantity > 1 || cart.totalProducts > 1
-                    ? "items"
-                    : "item"}
-                </span>
-              </CartSummary>
-              <CartSummary>
-                <h4 className="text-grey3 font-normal">Shipping:</h4>
-                <span className="text-primary-black text-lg font-normal">
-                  {" "}
-                  ${cart.shipping}
-                </span>
-              </CartSummary>
-              <CartSummary>
-                <h4 className="text-grey3 font-normal">Total:</h4>
-                <span className="text-primary-black text-lg font-normal">
-                  ${cart.totalPrice + cart.shipping}
-                </span>
-              </CartSummary>
+            <div className="w-[60%]">
+              <CartTotals />
             </div>
           </div>
         </div>

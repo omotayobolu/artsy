@@ -102,6 +102,6 @@
   }
 
   .cart-link {
-    @apply lg:text-md pb-2;
+    @apply lg:text-md pb-2 text-grey3;
   }
 }
