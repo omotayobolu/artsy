@@ -65,17 +65,17 @@ const MarketPlaceProducts = () => {
         Home/ Marketplace/ Editorials/{" "}
         <span className="text-pure-black">{product.name}</span>
       </p>
-      <div className="mt-8 border border-secondary-black">
-        <div className="flex flex-row">
-          <div className="p-4 w-[50%] border-r border-secondary-black">
+      <div className="my-8 border border-secondary-black">
+        <div className="flex lg:flex-row flex-col">
+          <div className="p-4 lg:w-[50%] w-full border-r border-secondary-black">
             <img
               src={product.image}
               alt={product.name}
-              className="w-[525px] h-[600px] max-w-full"
+              className="lg:w-[525px] lg:h-[600px] max-w-full"
             />
           </div>
-          <div className="w-[50%]">
-            <div className="w-full py-4 px-8 flex flex-row items-center justify-between">
+          <div className="lg:w-[50%] w-full">
+            <div className="w-full lg:py-4 py-2 lg:px-8 px-6 flex flex-row items-center justify-between">
               <h3 className="lg:text-[40px] text-secondary-black">
                 {product.name}
               </h3>
@@ -84,7 +84,7 @@ const MarketPlaceProducts = () => {
                 <h3 className="font-medium">{"0." + product.price}</h3>
               </div>
             </div>
-            <div className="border-y border-secondary-black py-4 px-8">
+            <div className="border-y border-secondary-black lg:py-4 py-2 lg:px-8 px-6">
               <p className="my-2 text-[#616161]">
                 Creator:{" "}
                 <span className="text-[#4693ED] font-medium">

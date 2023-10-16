@@ -5,7 +5,7 @@ const Cart = () => {
   return (
     <section className="lg:my-[1%] lg:mx-[8%] sm:mx-[5%] mx-[3%]">
       <div className="grid place-items-center">
-        <ul className="flex flex-row items-center justify-center gap-8 border-b border-grey4 border-opacity-30">
+        <ul className="md:flex hidden flex-row items-center justify-center gap-8 border-b border-grey4 border-opacity-30">
           <NavLink
             to="shopping-cart"
             className={({ isActive }) =>

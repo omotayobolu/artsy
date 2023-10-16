@@ -35,7 +35,7 @@ const CartItems = () => {
               <div className="flex flex-row items-center gap-8 w-full">
                 <img
                   src={item.image}
-                  className="w-[170px] h-[150px]"
+                  className="w-[170px] max-w-full h-[150px]"
                   alt={item.name}
                 />
                 <div className="flex flex-row justify-between w-full">

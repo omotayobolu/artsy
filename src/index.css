@@ -73,6 +73,10 @@
 }
 
 @layer components {
+  .container {
+    @apply lg:my-[1%] lg:mx-[8%] sm:mx-[5%] mx-[3%];
+  }
+
   .link {
     @apply md:text-lg text-secondary-black text-md font-normal;
   }
@@ -102,6 +106,6 @@
   }
 
   .cart-link {
-    @apply lg:text-md pb-2 text-grey3;
+    @apply lg:text-md pb-2 text-grey3 pointer-events-none;
   }
 }

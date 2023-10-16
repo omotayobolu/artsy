@@ -15,7 +15,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home/Home";
 import MarketPlace from "./pages/MarketPlace/MarketPlace";
 import MarketPlaceProducts from "./pages/MarketPlace/MarketPlaceProducts";
-import Auctions from "./pages/Auctions";
+import Auctions from "./pages/Auctions/Auctions";
 import Drop from "./pages/Drop";
 import Cart from "./pages/Cart/Cart";
 import ShoppingCart from "./pages/Cart/ShoppingCart";

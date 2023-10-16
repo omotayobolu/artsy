@@ -3,12 +3,13 @@ import CartItems from "./CartItems";
 import Input from "../../components/Input";
 import PrimaryBtn from "../../components/PrimaryBtn";
 import CartTotals from "./CartTotals";
+import Select from "../../components/Select";
 
 const ShippingDetails = () => {
   return (
     <section className="py-8">
       <div className="w-full flex flex-row gap-16">
-        <div className="w-[55%]">
+        <div className="md:w-[55%] w-full">
           <Input
             label="Your Email"
             type="email"
@@ -28,12 +29,31 @@ const ShippingDetails = () => {
             placeholder="Agbado Cassava"
             className="mt-8"
           />
-          <div cl8assName="mt-8">
+          <Select label="Choose a wallet" className="mt-8">
+            <option value=""></option>
+            <option value="Coinbase">Coinbase</option>
+            <option value="Metamask">Metamask</option>
+            <option value="Trust wallet">Trust Wallet</option>
+          </Select>
+          <Select label="City" className="mt-8">
+            <option value=""></option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="United States">United States</option>
+            <option value="Spain">Spain</option>
+          </Select>
+          <div className="mt-8 flex flex-row items-center gap-8">
+            <Select label="Country" className="w-[70%]">
+              <option value=""></option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="United States">United States</option>
+              <option value="Spain">Spain</option>
+            </Select>
             <Input
               label="Postal Code"
-              type="number"
+              type="text"
               id="postal code"
               placeholder="00001"
+              className="w-[30%]"
             />
           </div>
           <Input

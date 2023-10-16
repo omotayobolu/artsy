@@ -14,8 +14,8 @@ const ShoppingCart = () => {
         <div>
           <CartItems />
           <hr style={{ color: "#747474", height: "0.3px", opacity: "0.3" }} />
-          <div className="mt-8 flex flex-row items-center gap-16 w-full">
-            <div className="w-[40%] grid gap-4 place-items-center">
+          <div className="mt-8 flex lg:flex-row flex-col-reverse items-center gap-16 w-full">
+            <div className="lg:w-[40%] w-full grid gap-4 place-items-center">
               <PrimaryBtn className="text-md w-full py-4">
                 <Link to="/cart/shipping-details">Proceed to checkout</Link>
               </PrimaryBtn>
@@ -23,7 +23,7 @@ const ShoppingCart = () => {
                 <SecondaryBtn>Continue Shopping</SecondaryBtn>
               </Link>
             </div>
-            <div className="w-[60%]">
+            <div className="lg:w-[60%] w-full">
               <CartTotals />
             </div>
           </div>
