@@ -99,7 +99,7 @@ const UpcomingAuctions = () => {
       </div>
       <div className="bg-white md:my-[10%] my-[8%]">
         <hr className="border-t- border-secondary-black" />
-        <Link to={"/marketplace"}>
+        <Link to="/marketplace">
           <div className="flex items-center justify-between lg:px-[8%] sm:px-[5%] px-[3%] py-4">
             <h2 className="text-secondary-black">Explore marketplace</h2>
             <div className="border border-secondary-black p-3 rounded-full">
@@ -108,12 +108,14 @@ const UpcomingAuctions = () => {
           </div>
         </Link>
         <hr className="border-t- border-secondary-black" />
-        <div className="flex items-center justify-between lg:px-[8%] sm:px-[5%] px-[3%] py-4">
-          <h2 className="text-secondary-black">See Auctions</h2>
-          <div className="border border-secondary-black p-3 rounded-full">
-            <BsArrowRight className="lg:text-[40px] text-[20px] text-[#616161] cursor-pointer" />
+        <Link to="/auctions">
+          <div className="flex items-center justify-between lg:px-[8%] sm:px-[5%] px-[3%] py-4">
+            <h2 className="text-secondary-black">See Auctions</h2>
+            <div className="border border-secondary-black p-3 rounded-full">
+              <BsArrowRight className="lg:text-[40px] text-[20px] text-[#616161] cursor-pointer" />
+            </div>
           </div>
-        </div>
+        </Link>
 
         <hr className="border-t- border-secondary-black" />
       </div>

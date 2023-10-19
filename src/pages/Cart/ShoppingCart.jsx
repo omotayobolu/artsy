@@ -29,8 +29,11 @@ const ShoppingCart = () => {
           </div>
         </div>
       ) : (
-        <div className="grid place-items-center">
+        <div className="grid place-items-center gap-4">
           <h3>Cart is empty</h3>
+          <PrimaryBtn className="text-md py-4">
+            <Link to="/marketplace">Go to marketplace</Link>
+          </PrimaryBtn>
         </div>
       )}
     </section>

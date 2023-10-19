@@ -47,7 +47,7 @@ const Navbar = () => {
             mobileNav === "open" && "absolute top-[5%] left-[5%]"
           }`}
         >
-          Artsy.
+          <Link to="/">Artsy.</Link>
         </h3>
         {mobileNav === "open"}
         <ul

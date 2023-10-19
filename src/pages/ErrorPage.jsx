@@ -12,7 +12,7 @@ const ErrorPage = () => {
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
-      <Link to="/marketplace" className="text-lg underline font-medium mt-6">
+      <Link to="/" className="text-lg underline font-medium mt-6">
         Go Back
       </Link>
     </div>
