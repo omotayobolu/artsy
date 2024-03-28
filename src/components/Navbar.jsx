@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { BiSearch } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { HiOutlineBell } from "react-icons/hi";
 import Hamburger from "../assets/images/hamburger.png";
 import CloseNav from "../assets/images/close nav.png";
 import { useSelector } from "react-redux";
@@ -30,7 +28,7 @@ const Navbar = () => {
           <img
             src={Hamburger}
             alt=""
-            className="sm:hidden block"
+            className="sm:hidden block cursor-pointer"
             onClick={() => switchNav("open")}
           />
         )}
@@ -38,7 +36,7 @@ const Navbar = () => {
           <img
             src={CloseNav}
             alt=""
-            className="sm:hidden block absolute top-[5%] right-[5%]"
+            className="sm:hidden block absolute top-[5%] right-[5%] cursor-pointer"
             onClick={() => switchNav("close")}
           />
         )}
@@ -47,7 +45,9 @@ const Navbar = () => {
             mobileNav === "open" && "absolute top-[5%] left-[5%]"
           }`}
         >
-          <Link to="/">Artsy.</Link>
+          <Link to="/" onClick={() => setMobileNav("close")}>
+            Artsy.
+          </Link>
         </h3>
         {mobileNav === "open"}
         <ul
@@ -74,49 +74,21 @@ const Navbar = () => {
             <NavLink
               to={`/marketplace`}
               className={`${
-                mobileNav === "open" ? "font-medium text-lg" : ""
+                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
               Marketplace
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to={`/auctions`}
-              className={`${
-                mobileNav === "open" ? "font-medium text-lg" : ""
-              } link `}
-              onClick={() => setMobileNav("close")}
-            >
-              Auctions
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={`/drop`}
-              className={`${
-                mobileNav === "open" ? "font-medium text-lg" : ""
-              } link `}
-              onClick={() => setMobileNav("close")}
-            >
-              Drop
-            </NavLink>
-          </li>
         </ul>
-        <div
-          className={`flex flex-row items-center gap-6 ${
-            mobileNav === "open" && "hidden"
-          }`}
-        >
-          <BiSearch className="lg:block hidden text-[30px] text-secondary-black" />
+        <div className={` ${mobileNav === "open" && "hidden"}`}>
           <Link to="cart" className="relative">
             <AiOutlineShoppingCart className="text-[30px] text-secondary-black" />
             {products.length > 0 && (
               <div className="absolute top-0 right-[-3px] w-[5px] h-[5px] rounded-full bg-[#E31616]"></div>
             )}
           </Link>
-          <HiOutlineBell className="lg:block hidden text-[30px] text-secondary-black" />
         </div>
       </div>
     </header>

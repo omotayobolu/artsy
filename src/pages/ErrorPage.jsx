@@ -8,7 +8,6 @@ const ErrorPage = () => {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
       <h1>Oops!</h1>
-      <p>Page Not Found!</p>
       <p>
         <i>{error.statusText || error.message}</i>
       </p>

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { BiEnvelope } from "react-icons/bi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import PrimaryBtn from "../components/PrimaryBtn";
@@ -25,7 +25,7 @@ const Footer = () => {
       </div>
       <div className="lg:my-[5%] md:my-[8%] my-[3%] flex flex-row items-center justify-between">
         <h2 className="uppercase md:block hidden text-primary-black font-semibold">
-          Artsy.
+          <Link to="/home">Artsy.</Link>
         </h2>
         <ul className="flex-col md:flex hidden gap-6 text-secondary-black">
           <li>

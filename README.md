@@ -1,3 +1,3 @@
 # artsy
 
-live-link: ("https://artsy-omotayo.netlify.app")
+live-link: ([https://artsy-neon.vercel.app/](https://artsy-neon.vercel.app/)")
