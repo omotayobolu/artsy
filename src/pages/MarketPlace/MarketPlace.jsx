@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { MarketPlaceData } from "../../data/MarketPlaceData";
