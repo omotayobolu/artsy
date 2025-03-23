@@ -1,27 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BiEnvelope } from "react-icons/bi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import PrimaryBtn from "../components/PrimaryBtn";
+import axiosInstance from "../apis/axiosInstance";
+import { Toaster, toast } from "sonner";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const subscribeNewsletter = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axiosInstance.post("/subscribe", { email });
+      toast.success(response.data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
   return (
     <>
+      <Toaster position="top-right" expand={true} richColors />
       <div className="md:border border-secondary-black md:flex flex-col gap-8  justify-center items-center py-16">
         <h3 className="md:font-normal font-medium uppercase">Newsletter</h3>
         <p className="md:text-xl text-md md:my-0 my-4 md:normal-case uppercase leading-normal md:text-center">
           Subscribe to get daily updates on new drops & exciting deals
         </p>
-        <div className="flex md:flex-row flex-col md:items-center items-start gap-6">
+        <form
+          onSubmit={subscribeNewsletter}
+          className="flex md:flex-row flex-col md:items-center items-start gap-6"
+        >
           <input
             type="email"
             className="border border-secondary-black px-6 py-2 placeholder:uppercase placeholder:text-base text-secondary-black text-md"
-            name=""
-            id=""
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
           <PrimaryBtn className="uppercase text-sm">Subscribe</PrimaryBtn>
-        </div>
+        </form>
       </div>
       <div className="lg:my-[5%] md:my-[8%] my-[3%] flex flex-row items-center justify-between">
         <h2 className="uppercase md:block hidden text-primary-black font-semibold">
