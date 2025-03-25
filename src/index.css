@@ -50,6 +50,7 @@
 
   input[type="checkbox"]:checked {
     @apply bg-tick bg-no-repeat bg-center bg-contain;
+    background-size: 70%;
   }
 
   input[type="range"] {
@@ -89,8 +90,12 @@
     @apply flex lg:flex-row-reverse;
   }
 
+  .product:nth-child(2) > div:first-child > div {
+    @apply lg:ml-auto;
+  }
+
   .creators li {
-    @apply lg:text-xl text-lg lg:m-0 mx-2 leading-normal font-normal;
+    @apply lg:text-xl text-lg lg:m-0 mx-2 leading-relaxed font-normal;
   }
 
   .footer-link {
