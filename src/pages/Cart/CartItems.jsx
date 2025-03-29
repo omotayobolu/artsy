@@ -1,59 +1,118 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CiCircleRemove } from "react-icons/ci";
 import { cartActions } from "../../store/cart-slice";
+import { formatPrice } from "../../utils/priceFormatter";
+import axiosInstance, { getToken } from "../../utils/axiosInstance";
+import { toast, Toaster } from "sonner";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const CartItems = () => {
-  const cart = useSelector((state) => state.cart); //gets the cart list
-  const dispatch = useDispatch();
+const CartItems = ({ cart }) => {
+  // const cart = useSelector((state) => state.cart); //gets the cart list
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(cartActions.total());
-  }, [cart]);
+  // useEffect(() => {
+  //   dispatch(cartActions.total());
+  // }, [cart]);
+
+  const queryClient = useQueryClient();
+
+  const { mutate: removeItem } = useMutation({
+    mutationFn: async (id) => {
+      const response = await axiosInstance.delete("/cart", {
+        data: {
+          userId: getToken(),
+          productId: id,
+        },
+      });
+      return response.data;
+    },
+    onSuccess: (data) => {
+      toast.success(data.message);
+      queryClient.invalidateQueries(["cart"]);
+    },
+    onError: (error) => {
+      toast.error(error.response.data.message);
+      console.error(error);
+    },
+  });
+
+  const { mutate: updateQuantity } = useMutation({
+    mutationFn: async (product) => {
+      const response = await axiosInstance.patch("/cart", {
+        userId: getToken(),
+        productId: product.productId,
+        quantity: product.quantity,
+      });
+      return response.data;
+    },
+    onSuccess: (data) => {
+      console.log(data);
+      queryClient.invalidateQueries(["cart"]);
+      toast.success(data.status);
+    },
+    onError: (error) => {
+      toast.error(error.response.data.message);
+      console.error(error);
+    },
+  });
 
   const removeItemHandler = (id) => {
-    dispatch(cartActions.removeItemFromCart(id));
+    removeItem(id);
   };
 
   const increaseQuantityHandler = (product) => {
-    dispatch(cartActions.increaseQuantity(product));
+    const updatedQuantity = product.quantity + 1;
+    updateQuantity({
+      ...product,
+      quantity: updatedQuantity,
+    });
   };
 
   const decreaseQuantityHandler = (product) => {
-    dispatch(cartActions.decreaseQuantity(product));
+    const updatedQuantity = product.quantity - 1;
+    updateQuantity({
+      ...product,
+      quantity: updatedQuantity,
+    });
   };
 
   return (
-    <section>
+    <section className="font-satoshi">
+      <Toaster position="top-right" richColors />
       <div className="pt-4">
         <div className="flex flex-col">
-          {cart.products.map((item) => (
+          {cart.map((item) => (
             <div
-              key={item.id}
+              key={item._id}
               className="py-6 border-[#747474] border-opacity-30 border-t-[0.3px]"
             >
-              <div className="flex flex-row items-center gap-8 w-full">
-                <img
-                  src={item.image}
-                  className="w-[170px] max-w-full h-[150px]"
-                  alt={item.name}
-                />
+              <div className="flex flex-row gap-8 w-full h-full">
+                <div className="w-[210px] h-[196px] flex items-center justify-center bg-gray-200">
+                  <img
+                    src={item.image}
+                    className="w-full h-full object-cover"
+                    alt={item.name}
+                  />
+                </div>
                 <div className="flex flex-row justify-between w-full">
-                  <div>
+                  <div className="flex flex-col items-start h-full">
                     <h4 className="font-medium">{item.name}</h4>
-                    <p className="text-grey3 font-normal my-2">
-                      {item.creator}
-                    </p>
-                    <p className="text-grey3 text-sm">
-                      Size: <span>{item.size}</span>
-                    </p>
-                    <div className="text-[30px]  flex flex-row items-center gap-4 text-secondary-black">
+                    <div className="flex flex-col flex-grow justify-center gap-4">
+                      <p className="text-grey3 text-sm">
+                        Created by: {item.creator}
+                      </p>
+                      <p className="text-grey3 text-sm">
+                        Category: <span>{item.category}</span>
+                      </p>
+                    </div>
+                    <div className="text-[30px]  flex flex-row items-center gap-4 text-secondary-black mt-auto">
                       <span
                         className="cursor-pointer font-medium"
                         onClick={
                           item.quantity > 1
                             ? () => decreaseQuantityHandler(item)
-                            : () => removeItemHandler(item.id)
+                            : () => removeItemHandler(item.productId)
                         } //removes item from cart when quantity is less than 1
                       >
                         -
@@ -71,10 +130,10 @@ const CartItems = () => {
                   </div>
                   <div className="max-w-full flex flex-col  justify-between">
                     <CiCircleRemove
-                      onClick={() => removeItemHandler(item.id)}
-                      className="self-center cursor-pointer text-xl text-grey3"
+                      onClick={() => removeItemHandler(item.productId)}
+                      className="self-end cursor-pointer text-xl text-grey3"
                     />
-                    <h3 className="self-end">${item.price}</h3>
+                    <h3 className="self-end">{formatPrice(item.price)}</h3>
                   </div>
                 </div>
               </div>

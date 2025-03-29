@@ -1,13 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { getCart } from "../../utils/artsy-api";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const { data: cart, isLoading: cartLoading } = useQuery({
+    queryKey: ["cart"],
+    queryFn: getCart,
+  });
+
+  if (cartLoading) {
+    return <p className="text-center">Loading...</p>;
+  }
+
   return (
     <section className="lg:my-[1%] lg:mx-[8%] sm:mx-[5%] mx-[3%]">
       <div className="grid place-items-center">
-        {cart.products.length > 0 && (
+        {cart.cart.products.length > 0 && (
           <ul className="md:flex hidden flex-row items-center justify-center gap-8 border-b border-grey4 border-opacity-30">
             <NavLink
               to="shopping-cart"
