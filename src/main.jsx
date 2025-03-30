@@ -20,6 +20,7 @@ import Cart from "./pages/Cart/Cart";
 import ShoppingCart from "./pages/Cart/ShoppingCart";
 import ShippingDetails from "./pages/Cart/ShippingDetails";
 import PaymentDetails from "./pages/Cart/PaymentDetails";
+import { getToken } from "./utils/axiosInstance";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,9 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to="/cart/shopping-cart" />,
+            element: (
+              <Navigate to={`/cart/shopping-cart?userId=${getToken()}`} />
+            ),
           },
           {
             path: "shopping-cart",
