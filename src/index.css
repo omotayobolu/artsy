@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Satoshi";
-  src: url("./assets/Fonts/Satoshi-Regular.otf") format("opentype");
-}
-
 @layer base {
   * {
     margin: 0;
@@ -36,7 +31,7 @@
   }
 
   p {
-    @apply md:text-md text-sm font-normal;
+    @apply md:text-md text-sm font-normal font-satoshi;
   }
 
   a {
@@ -79,7 +74,7 @@
   }
 
   .link {
-    @apply md:text-lg text-secondary-black text-md font-normal;
+    @apply md:text-lg text-secondary-black text-md font-normal font-satoshi;
   }
 
   .link.active {
@@ -103,7 +98,7 @@
   }
 
   .category {
-    @apply my-1 flex gap-2 items-center text-primary-black;
+    @apply my-1 flex gap-2 items-center text-primary-black font-satoshi;
   }
 
   .filter {
