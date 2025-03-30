@@ -34,6 +34,9 @@ module.exports = {
       lg: "1024px",
     },
     extend: {
+      fontFamily: {
+        satoshi: ["Satoshi", "sans-serif"],
+      },
       backgroundImage: {
         tick: "url('/src/assets/images/tick.png')",
       },
