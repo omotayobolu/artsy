@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { BiEnvelope } from "react-icons/bi";
 import { MdOutlineLocationOn } from "react-icons/md";
 import PrimaryBtn from "../components/PrimaryBtn";
-import axiosInstance from "../apis/axiosInstance";
+import axiosInstance from "../utils/axiosInstance";
 import { Toaster, toast } from "sonner";
 
 const Footer = () => {
