@@ -1,7 +1,7 @@
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-const getToken = () => {
+export const getToken = () => {
   let token = localStorage.getItem("token");
 
   if (!token) {
