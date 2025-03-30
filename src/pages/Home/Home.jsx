@@ -5,7 +5,7 @@ import FeaturedProduct from "./FeaturedProduct";
 import HomeFooter from "./HomeFooter";
 import Hero from "./Hero";
 import UpcomingAuctions from "./UpcomingAuctions";
-import { getMarketplaceData, getAuctionsData } from "../../apis/artsy-api";
+import { getMarketplaceData, getAuctionsData } from "../../utils/artsy-api";
 
 const Home = () => {
   const {

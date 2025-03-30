@@ -1,27 +1,32 @@
 import React, { useState } from "react";
-import UpcomingAuctionsData from "../../data/UpcomingAuctionsData";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
 
-const UpcomingAuctions = () => {
+const UpcomingAuctions = ({ auctions }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const previousSlide = () => {
     const firstSlide = currentSlide === 0;
-    const newSlide = firstSlide
-      ? UpcomingAuctionsData.length - 1
-      : currentSlide - 1;
-    // if it's on the first slide and you click on the previous button, it goes to the last slide
+    const newSlide = firstSlide ? auctions.length - 1 : currentSlide - 1;
     setCurrentSlide(newSlide);
   };
 
   const nextSlide = () => {
-    const lastSlide = currentSlide === UpcomingAuctionsData.length - 1;
+    const lastSlide = currentSlide === auctions.length - 1;
     const newSlide = lastSlide ? 0 : currentSlide + 1;
-    // if it's on the last slide and you click on the next button, it goes to the first slide
     setCurrentSlide(newSlide);
   };
+
+  const date = new Date(auctions[currentSlide].startTime);
+
+  const day = date.toLocaleDateString("en-US", { weekday: "long" });
+
+  const time = date.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
 
   return (
     <>
@@ -33,27 +38,26 @@ const UpcomingAuctions = () => {
         <div
           className="my-6 p-8 md:pt-[30%] text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,52%)] flex flex-row justify-between"
           style={{
-            backgroundImage: `url(${UpcomingAuctionsData[currentSlide].url})`,
+            backgroundImage: `url(${auctions[currentSlide].image})`,
           }}
         >
-          {/* <img src={UpcomingAuctionsData[currentSlide].url} alt="" /> */}
-          <div className="flex flex-row lg:items-end items-center gap-2">
-            <span className="text-3xl">
-              {UpcomingAuctionsData[currentSlide].id}
-            </span>
-            <div className="flex lg:flex-row flex-col gap-4 items-end justify-between">
+          <div className="flex flex-row lg:items-end items-center gap-2 w-full">
+            <span className="text-3xl">0{currentSlide + 1}</span>
+            <div className="flex lg:flex-row flex-col gap-4 items-end justify-between w-full">
               <div className="flex flex-col gap-6 lg:w-[70%] w-full">
                 <p
                   className="text-lg leading-normal
                 "
                 >
-                  {UpcomingAuctionsData[currentSlide].title}
+                  {auctions[currentSlide].name}
                 </p>
                 <p className="font-normal uppercase text-[0.9rem]">
-                  {UpcomingAuctionsData[currentSlide].date}
+                  starts on: {time} {day}
                 </p>
-                <p className="font-medium text-base uppercase">
-                  {UpcomingAuctionsData[currentSlide].desc}
+                <p className="font-medium text-base uppercase w-[628.8px]">
+                  get exclusive viewing of contemporary art and connect with
+                  investors and auctioneers across the world bringing their
+                  highest and lowest bids.
                 </p>
               </div>
               <div className="md:text-md text-sm flex flex-row items-end gap-4">
