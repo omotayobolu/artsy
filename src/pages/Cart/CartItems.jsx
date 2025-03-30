@@ -27,6 +27,27 @@ const CartItems = ({ cart }) => {
       });
       return response.data;
     },
+    onMutate: async (id) => {
+      await queryClient.cancelQueries(["cart"]);
+
+      const previousCart = queryClient.getQueryData(["cart"]);
+
+      queryClient.setQueryData(["cart"], (oldData) => {
+        if (!oldData) return oldData;
+
+        return {
+          ...oldData,
+          cart: {
+            ...oldData.cart,
+            products: oldData.cart.products.filter(
+              (item) => item.productId !== id
+            ),
+          },
+        };
+      });
+
+      return { previousCart };
+    },
     onSuccess: (data) => {
       toast.success(data.message);
       queryClient.invalidateQueries(["cart"]);
@@ -46,14 +67,45 @@ const CartItems = ({ cart }) => {
       });
       return response.data;
     },
+
+    onMutate: async (product) => {
+      await queryClient.cancelQueries(["cart"]);
+
+      const previousCart = queryClient.getQueryData(["cart"]);
+
+      queryClient.setQueryData(["cart"], (oldData) => {
+        if (!oldData) return oldData;
+
+        return {
+          ...oldData,
+          cart: {
+            ...oldData.cart,
+            products: oldData.cart.products.map((item) =>
+              item.productId === product.productId
+                ? {
+                    ...item,
+                    quantity: product.quantity,
+                    price: (item.price / item.quantity) * product.quantity,
+                  }
+                : item
+            ),
+          },
+        };
+      });
+
+      return { previousCart };
+    },
     onSuccess: (data) => {
       console.log(data);
-      queryClient.invalidateQueries(["cart"]);
-      toast.success(data.status);
+      toast.success(data.message);
     },
     onError: (error) => {
       toast.error(error.response.data.message);
+      queryClient.setQueryData(["cart"], context.previousCart);
       console.error(error);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries(["cart"]);
     },
   });
 
