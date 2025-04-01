@@ -21,6 +21,7 @@ import ShoppingCart from "./pages/Cart/ShoppingCart";
 import ShippingDetails from "./pages/Cart/ShippingDetails";
 import PaymentDetails from "./pages/Cart/PaymentDetails";
 import { getToken } from "./utils/axiosInstance";
+import Auctions from "./pages/Auctions/Auctions";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
             element: <PaymentDetails />,
           },
         ],
+      },
+      {
+        path: "auctions",
+        element: <Auctions />,
       },
     ],
   },
