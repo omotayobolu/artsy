@@ -22,6 +22,8 @@ import ShippingDetails from "./pages/Cart/ShippingDetails";
 import PaymentDetails from "./pages/Cart/PaymentDetails";
 import { getToken } from "./utils/axiosInstance";
 import Auctions from "./pages/Auctions/Auctions";
+import LiveBid from "./pages/Auctions/LiveBid";
+import Drop from "./pages/Drop/Drop";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +74,14 @@ const router = createBrowserRouter([
       {
         path: "auctions",
         element: <Auctions />,
+      },
+      {
+        path: "auctions/:id/livebid",
+        element: <LiveBid />,
+      },
+      {
+        path: "drop",
+        element: <Drop />,
       },
     ],
   },

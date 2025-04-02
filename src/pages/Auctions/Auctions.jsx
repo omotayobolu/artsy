@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import { IoIosHeartEmpty, IoMdHeart } from "react-icons/io";
 import { formatPrice } from "../../utils/priceFormatter";
 import PrimaryBtn from "../../components/PrimaryBtn";
+import { Link } from "react-router-dom";
 
 const auctionStyles = `
   .swiper-pagination {
@@ -101,21 +102,23 @@ const Auctions = () => {
               },
             }}
           >
-            {auctions.map((auction) => (
-              <SwiperSlide key={auction._id}>
-                <div className="relative">
-                  <img
-                    src={auction.image}
-                    alt={auction.name}
-                    className="w-full h-[396px] max-h-[396px] object-cover rounded-[15px] drop-shadow-[0px_0px_9px_rgba(0,0,0,0.25)]"
-                  />
-                  <div className="absolute inset-0 bg-secondary-black bg-opacity-10 rounded-[15px]" />
-                  <div className="absolute bottom-[31px] left-1/2 -translate-x-1/2 border-[0.5px] border-white rounded-lg bg-[rgba(245,244,244,0.24)] text-white font-stix text-xl whitespace-nowrap py-2.5 px-6">
-                    {formatTimeDifference(auction.startTime, auction.endTime)}
+            {auctions
+              .filter((auction) => auction.status === "live")
+              .map((auction) => (
+                <SwiperSlide key={auction._id}>
+                  <div className="relative">
+                    <img
+                      src={auction.image}
+                      alt={auction.name}
+                      className="w-full h-[396px] max-h-[396px] object-cover rounded-[15px] drop-shadow-[0px_0px_9px_rgba(0,0,0,0.25)]"
+                    />
+                    <div className="absolute inset-0 bg-secondary-black bg-opacity-10 rounded-[15px]" />
+                    <div className="absolute bottom-[31px] left-1/2 -translate-x-1/2 border-[0.5px] border-white rounded-lg bg-[rgba(245,244,244,0.24)] text-white font-stix text-xl whitespace-nowrap py-2.5 px-6">
+                      {formatTimeDifference(auction.startTime, auction.endTime)}
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
         <div className="mt-[45px]">
@@ -168,19 +171,21 @@ const Auctions = () => {
                       </p>
                     </h3>
                   </div>
-                  <div className="mt-10 bg-[#F6F4F4] rounded-[10px] py-2.5 px-6">
+                  <div className="mt-10">
                     <div className="flex flex-row items-center justify-between">
-                      <div className="flex flex-col justify-between">
+                      {/* <div className="flex flex-col justify-between">
                         <p className="text-[#616161] font-bold text-[30px]">
                           Current Bid
                         </p>
                         <p className="text-[#000000] font-bold text-[30px]">
                           {formatPrice(auction.currentBid)}
                         </p>
-                      </div>
-                      <PrimaryBtn className="font-medium text-lg py-5">
-                        Place Bid
-                      </PrimaryBtn>
+                      </div> */}
+                      <Link to={`/auctions/${auction._id}/livebid`}>
+                        <PrimaryBtn className="font-medium text-lg py-5">
+                          Place Bid
+                        </PrimaryBtn>
+                      </Link>
                     </div>
                   </div>
                 </div>
