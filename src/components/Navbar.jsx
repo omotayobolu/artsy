@@ -3,11 +3,17 @@ import { NavLink, Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Hamburger from "../assets/images/hamburger.png";
 import CloseNav from "../assets/images/close nav.png";
-import { useSelector } from "react-redux";
+import { getToken } from "../utils/axiosInstance";
+import { getCart } from "../utils/artsy-api";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
-  const products = useSelector((state) => state.cart.products);
   const [mobileNav, setMobileNav] = useState("close");
+
+  const { data: cart } = useQuery({
+    queryKey: ["cart"],
+    queryFn: getCart,
+  });
 
   function switchNav(mobileNav) {
     if (mobileNav === "close") {
@@ -18,7 +24,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="py-8">
+    <header className="py-8 font-satoshi">
       <div
         className={`lg:mx-[8%] sm:mx-[5%] mx-[3%] ${
           mobileNav === "close" && "flex flex-row justify-between items-center"
@@ -81,11 +87,36 @@ const Navbar = () => {
               Marketplace
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to={`/auctions`}
+              className={`${
+                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
+              } link `}
+              onClick={() => setMobileNav("close")}
+            >
+              Auctions
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={`/drop`}
+              className={`${
+                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
+              } link `}
+              onClick={() => setMobileNav("close")}
+            >
+              Drop
+            </NavLink>
+          </li>
         </ul>
         <div className={` ${mobileNav === "open" && "hidden"}`}>
-          <Link to="cart" className="relative">
+          <Link
+            to={`cart/shopping-cart?userId=${getToken()}`}
+            className="relative"
+          >
             <AiOutlineShoppingCart className="text-[30px] text-secondary-black" />
-            {products.length > 0 && (
+            {cart?.cart?.products?.length > 0 && (
               <div className="absolute top-0 right-[-3px] w-[5px] h-[5px] rounded-full bg-[#E31616]"></div>
             )}
           </Link>
