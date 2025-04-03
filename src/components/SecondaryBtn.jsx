@@ -2,7 +2,7 @@ import React from "react";
 
 const SecondaryBtn = (props) => {
   return (
-    <button className="font-medium text-md border-b-2 border-secondary-black">
+    <button className="font-medium text-md underline underline-offset-8">
       {props.children}
     </button>
   );
