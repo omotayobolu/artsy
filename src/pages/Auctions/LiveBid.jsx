@@ -93,56 +93,65 @@ const LiveBid = () => {
             </div>
           </Link>
         </div>
-        <div className="w-1/2 px-9 pb-9 flex flex-col h-[600px]">
-          <div ref={scrollRef} className="flex-1 overflow-y-auto">
-            {auction.bids.map((bid) => (
-              <div
-                key={bid._id}
-                className="my-4 flex flex-row items-center space-x-2"
-              >
-                <IoPersonCircleSharp size="60px" color="#333333" />
-                <div className="flex flex-col space-y-1">
-                  <p>{bid.bidder}</p>
-                  <p className="text-md font-medium">{bid.message}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex-shrink-0 flex flex-row items-end justify-between gap-16">
-            <div className="w-full flex flex-col gap-2.5">
-              <p className="text-md italic text-[#BAB9B9] font-medium">
-                Creator: {auction.creator}
-              </p>
-              <div className="p-[1px] w-full bg-gradient-to-r from-[rgba(120,163,173,1)] to-[rgba(192,86,9,0.49)] rounded-[25px]">
-                <form onSubmit={submitBid} className="relative">
-                  <input
-                    type="text"
-                    className="rounded-[25px] py-[15px] px-8 w-full"
-                    placeholder="Place a bid..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                  <button className="absolute right-8 top-4">
-                    <IoPaperPlaneSharp color="#292929" size="25px" />
-                  </button>
-                </form>
+        <div className="w-1/2 px-9">
+          <div className=" flex flex-col h-[600px]">
+            <div ref={scrollRef} className="flex-1 overflow-y-auto ">
+              <div className="flex flex-col justify-end min-h-full">
+                {auction.bids.map((bid) => (
+                  <div
+                    key={bid._id}
+                    className="my-4 flex flex-row items-center space-x-2"
+                  >
+                    <IoPersonCircleSharp size="60px" color="#333333" />
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-secondary-black">{bid.bidder}</p>
+                      <p className="text-md font-medium text-secondary-black">
+                        {bid.message}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="relative">
-              {hearts.map((heart) => (
-                <IoMdHeart
-                  color="red"
-                  key={heart.id}
-                  className="absolute text-xl animate-float"
-                  style={{ left: `${heart.left}%`, bottom: `${heart.bottom}` }}
-                />
-              ))}
-              <button
-                onClick={sendHeart}
-                className="border border[#000000] rounded-full w-fit p-2.5"
-              >
-                <IoMdHeart fontSize="35px" cursor="pointer" color="red" />
-              </button>
+            <div className="flex-shrink-0 flex flex-row items-end justify-between gap-16 mb-9">
+              <div className="w-full flex flex-col gap-2.5">
+                <p className="text-md italic text-[#BAB9B9] font-medium">
+                  Creator: {auction.creator}
+                </p>
+                <div className="p-[1px] w-full bg-gradient-to-r from-[rgba(120,163,173,1)] to-[rgba(192,86,9,0.49)] rounded-[25px]">
+                  <form onSubmit={submitBid} className="relative">
+                    <input
+                      type="text"
+                      className="rounded-[25px] py-[15px] px-8 w-full"
+                      placeholder="Place a bid..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                    <button className="absolute right-8 top-4">
+                      <IoPaperPlaneSharp color="#292929" size="25px" />
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div className="relative">
+                {hearts.map((heart) => (
+                  <IoMdHeart
+                    color="red"
+                    key={heart.id}
+                    className="absolute text-xl animate-float"
+                    style={{
+                      left: `${heart.left}%`,
+                      bottom: `${heart.bottom}`,
+                    }}
+                  />
+                ))}
+                <button
+                  onClick={sendHeart}
+                  className="border border[#000000] rounded-full w-fit p-2.5"
+                >
+                  <IoMdHeart fontSize="35px" cursor="pointer" color="red" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
