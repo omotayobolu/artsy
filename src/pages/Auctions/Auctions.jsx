@@ -106,17 +106,22 @@ const Auctions = () => {
               .filter((auction) => auction.status === "live")
               .map((auction) => (
                 <SwiperSlide key={auction._id}>
-                  <div className="relative">
-                    <img
-                      src={auction.image}
-                      alt={auction.name}
-                      className="w-full h-[396px] max-h-[396px] object-cover rounded-[15px] drop-shadow-[0px_0px_9px_rgba(0,0,0,0.25)]"
-                    />
-                    <div className="absolute inset-0 bg-secondary-black bg-opacity-10 rounded-[15px]" />
-                    <div className="absolute bottom-[31px] left-1/2 -translate-x-1/2 border-[0.5px] border-white rounded-lg bg-[rgba(245,244,244,0.24)] text-white font-stix text-xl whitespace-nowrap py-2.5 px-6">
-                      {formatTimeDifference(auction.startTime, auction.endTime)}
+                  <Link to={`/auctions/${auction._id}/livebid`}>
+                    <div className="relative">
+                      <img
+                        src={auction.image}
+                        alt={auction.name}
+                        className="w-full h-[396px] max-h-[396px] object-cover rounded-[15px] drop-shadow-[0px_0px_9px_rgba(0,0,0,0.25)]"
+                      />
+                      <div className="absolute inset-0 bg-secondary-black bg-opacity-10 rounded-[15px]" />
+                      <div className="absolute bottom-[31px] left-1/2 -translate-x-1/2 border-[0.5px] border-white rounded-lg bg-[rgba(245,244,244,0.24)] text-white font-stix text-xl whitespace-nowrap py-2.5 px-6">
+                        {formatTimeDifference(
+                          auction.startTime,
+                          auction.endTime
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
           </Swiper>
@@ -165,7 +170,7 @@ const Auctions = () => {
                       </p>
                     </h3>
                     <h3 className="flex flex-row items-center font-medium text-[#616161]">
-                      Highest Bid:
+                      Current Bid:
                       <p className="ml-2 text-[30px] font-bold text-secondary-black leading-normal">
                         {formatPrice(auction.highestBid)}
                       </p>
