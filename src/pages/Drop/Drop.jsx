@@ -56,7 +56,7 @@ const Drop = () => {
           Home/ Auctions/ Live Bid/
           <p className="text-lg font-medium text-secondary-black"> Drop</p>
         </h4>
-        <div className="mt-14 text-center">
+        {/* <div className="mt-14 text-center">
           <h2>Upcoming Drops</h2>
           <h4 className="font-normal text-[#616161] my-[30px] ">
             Turn on notifications so that no drops will miss you.
@@ -64,7 +64,7 @@ const Drop = () => {
           <button className="w-[420px] h-[84px] text-xl border border-pure-black rounded-[10px]">
             Notify Me
           </button>
-        </div>
+        </div> */}
         <div className="mt-20 flex flex-col gap-28">
           {auctions.slice(0, visibleAuctions).map((drop) => (
             <div className="w-full flex flex-row items-start gap-10">
@@ -104,17 +104,17 @@ const Drop = () => {
                 </div>
 
                 {drop.status === "live" && (
-                  <Link to={`/auctions/${drop._id}/livebid`}>
+                  <Link to={`/auctions/${drop._id}/livebid`} className="w-fit">
                     <p className="text-[#006CA2] text-md underline underline-offset-4">
                       Join now
                     </p>
                   </Link>
                 )}
-                {drop.status === "upcoming" && (
+                {/* {drop.status === "upcoming" && (
                   <p className="text-[#006CA2] text-md underline underline-offset-4">
                     Get notified
                   </p>
-                )}
+                )} */}
               </div>
             </div>
           ))}
