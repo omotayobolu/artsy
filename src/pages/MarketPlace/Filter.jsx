@@ -9,8 +9,12 @@ const Filter = () => {
   const [priceOpened, setPriceOpened] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const selectedCategories = searchParams.getAll("category") || [];
   const priceFilter = searchParams.get("priceFilter");
+
+  const rawCategories = searchParams.getAll("category") || [];
+  const selectedCategories = rawCategories.flatMap((category) =>
+    category.split(",")
+  );
 
   const handleCategoryChange = (e) => {
     const category = e.target.value;
@@ -26,11 +30,9 @@ const Filter = () => {
 
     if (updatedCategories.length > 0) {
       setSearchParams(
-        { category: updatedCategories, offset: 0, limit: 9 },
+        { category: updatedCategories.join(",") },
         { replace: true }
       );
-    } else {
-      setSearchParams({ offset: 0, limit: 9 }, { replace: true });
     }
   };
 
