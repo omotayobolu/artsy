@@ -24,6 +24,8 @@ import { getToken } from "./utils/axiosInstance";
 import Auctions from "./pages/Auctions/Auctions";
 import LiveBid from "./pages/Auctions/LiveBid";
 import Drop from "./pages/Drop/Drop";
+import Success from "./pages/Cart/success";
+import Cancel from "./pages/Cart/cancel";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +85,8 @@ const router = createBrowserRouter([
         path: "drop",
         element: <Drop />,
       },
+      { path: "payment-success", element: <Success /> },
+      { path: "payment-failure", element: <Cancel /> },
     ],
   },
 ]);
