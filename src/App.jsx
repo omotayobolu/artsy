@@ -5,18 +5,8 @@ import Navbar from "./components/Navbar";
 import { fetchCartData, sendCartData } from "./store/cart-actions";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-
-  useEffect(() => {
-    dispatch(fetchCartData());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(sendCartData(cart));
-  }, [cart, dispatch]);
   return (
-    <div className="font-Satoshi">
+    <div>
       <Navbar />
       <Outlet />
     </div>
