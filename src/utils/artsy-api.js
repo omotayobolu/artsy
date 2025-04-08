@@ -30,7 +30,7 @@ export const getCart = async () => {
     const response = await axiosInstance.get(`/cart?userId=${getToken()}`);
     return response.data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw new Error(
       error?.response?.data?.message || "Failed to fetch cart data"
     );
@@ -40,4 +40,9 @@ export const getCart = async () => {
 export const getAuctionsData = async () => {
   const response = await axiosInstance.get("/auctions");
   return response.data.auctions;
+};
+
+export const getAuction = async (auctionId) => {
+  const response = await axiosInstance.get(`/auctions/${auctionId}`);
+  return response.data;
 };
