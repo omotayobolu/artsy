@@ -7,10 +7,13 @@ import { getMarketplaceData } from "../../utils/artsy-api";
 import { useQuery } from "@tanstack/react-query";
 import { formatPrice } from "../../utils/priceFormatter";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useQueryParam } from "../../utils/useQueryParams";
 
 const MarketPlace = () => {
   const [allMarketProducts, setAllMarketProducts] = useState([]);
   const [openSort, setOpenSort] = useState(false);
+
+  const updateQueryParam = useQueryParam();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const offset = parseInt(searchParams.get("offset")) || 0;
@@ -69,7 +72,7 @@ const MarketPlace = () => {
   if (marketplaceLoading) return <p className="text-center">Loading...</p>;
 
   return (
-    <div id="marketplace" className="lg:mx-[7.6%] sm:mx-[5%] mx-[3%]">
+    <div id="marketplace" className="lg:mx-[7.6%] mx-[3%]">
       <div className="flex lg:flex-row flex-col items-center justify-center gap-10 lg:mb-[5%]"></div>
       <div className="flex flex-row items-center space-x-[57px]">
         <form onSubmit={handleSearch} className="relative">
@@ -107,7 +110,7 @@ const MarketPlace = () => {
               <div className="flex flex-col divide-y bg-white rounded-lg  drop-shadow-marketplace border border-primary-black">
                 <button
                   onClick={() => {
-                    setSearchParams({ sortByPrice: "ascending" });
+                    updateQueryParam("sortByPrice", "ascending");
                     setOpenSort(false);
                   }}
                   className="text-sm font-normal py-1 px-4"
@@ -116,7 +119,7 @@ const MarketPlace = () => {
                 </button>
                 <button
                   onClick={() => {
-                    setSearchParams({ sortByPrice: "descending" });
+                    updateQueryParam("sortByPrice", "descending");
                     setOpenSort(false);
                   }}
                   className="text-sm font-normal py-1 px-4"

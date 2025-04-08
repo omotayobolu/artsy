@@ -3,11 +3,14 @@ import filter from "../../assets/images/filter.png";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { useSearchParams } from "react-router-dom";
+import { useQueryParam } from "../../utils/useQueryParams";
 
 const Filter = () => {
   const [categoryOpened, setCategoryOpened] = useState(true);
   const [priceOpened, setPriceOpened] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const updateQueryParam = useQueryParam();
 
   const priceFilter = searchParams.get("priceFilter");
 
@@ -29,10 +32,7 @@ const Filter = () => {
     }
 
     if (updatedCategories.length > 0) {
-      setSearchParams(
-        { category: updatedCategories.join(",") },
-        { replace: true }
-      );
+      updateQueryParam("category", updatedCategories.join(","));
     }
   };
 
@@ -155,7 +155,7 @@ const Filter = () => {
             All
           </button>
           <button
-            onClick={() => setSearchParams({ priceFilter: "price<100" })}
+            onClick={() => updateQueryParam("priceFilter", "price<100")}
             className={`cursor-pointer ${
               priceFilter == "price<100" ? "underline underline-offset-4" : ""
             }`}
@@ -164,7 +164,7 @@ const Filter = () => {
           </button>
           <button
             onClick={() =>
-              setSearchParams({ priceFilter: "price>=100andprice<=150" })
+              updateQueryParam("priceFilter", "price>=100andprice<=150")
             }
             className={`cursor-pointer ${
               priceFilter == "price>=100andprice<=150"
@@ -176,7 +176,7 @@ const Filter = () => {
           </button>
           <button
             onClick={() =>
-              setSearchParams({ priceFilter: "price>=150andprice<=200" })
+              updateQueryParam("priceFilter", "price>=150andprice<=200")
             }
             className={`cursor-pointer ${
               priceFilter == "price>=150andprice<=200"
@@ -187,7 +187,7 @@ const Filter = () => {
             $150.00 - $200.00
           </button>
           <button
-            onClick={() => setSearchParams({ priceFilter: "price>200" })}
+            onClick={() => updateQueryParam("priceFilter", "price>200")}
             className={`cursor-pointer ${
               priceFilter == "price>200" ? "underline  underline-offset-4" : ""
             }`}
