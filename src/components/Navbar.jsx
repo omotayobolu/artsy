@@ -47,7 +47,7 @@ const Navbar = () => {
           />
         )}
         <h3
-          className={`uppercase text-primary-black sm:block flex justify-center items-center ${
+          className={`uppercase text-primary-black sm:block flex justify-center items-center z-30 ${
             mobileNav === "open" && "absolute top-[5%] left-[5%]"
           }`}
         >
@@ -60,7 +60,7 @@ const Navbar = () => {
           className={`sm:flex gap-6 ${
             mobileNav === "open"
               ? "flex-col flex z-20 bg-white h-screen mt-[30%] mx-[5%] gap-12"
-              : "flex-row hidden"
+              : "flex-row hidden z-30"
           } `}
         >
           <li>
