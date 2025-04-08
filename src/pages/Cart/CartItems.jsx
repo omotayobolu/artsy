@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { CiCircleRemove } from "react-icons/ci";
-import { cartActions } from "../../store/cart-slice";
 import { formatPrice } from "../../utils/priceFormatter";
 import axiosInstance, { getToken } from "../../utils/axiosInstance";
 import { toast, Toaster } from "sonner";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { getCart } from "../../utils/artsy-api";
 
-const CartItems = ({ cart }) => {
-  // const cart = useSelector((state) => state.cart); //gets the cart list
-  // const dispatch = useDispatch();
+const CartItems = () => {
+  const { data: cart, isLoading: cartLoading } = useQuery({
+    queryKey: ["cart"],
+    queryFn: getCart,
+  });
 
-  // useEffect(() => {
-  //   dispatch(cartActions.total());
-  // }, [cart]);
+  console.log(cart);
 
   const queryClient = useQueryClient();
 
@@ -131,10 +130,10 @@ const CartItems = ({ cart }) => {
 
   return (
     <section className="font-satoshi">
-      <Toaster position="top-right" richColors />
+      <Toaster position="top-right" richColors duration={1000} />
       <div className="pt-4">
         <div className="flex flex-col">
-          {cart.map((item) => (
+          {cart.cart.products.map((item) => (
             <div
               key={item._id}
               className="py-6 border-[#747474] border-opacity-30 border-t-[0.3px]"
@@ -149,7 +148,7 @@ const CartItems = ({ cart }) => {
                 </div>
                 <div className="flex flex-row justify-between w-full">
                   <div className="flex flex-col items-start h-full">
-                    <h4 className="font-medium">{item.name}</h4>
+                    <h4 className="font-medium leading-relaxed">{item.name}</h4>
                     <div className="flex flex-col flex-grow justify-center gap-4">
                       <p className="text-grey3 text-sm">
                         Created by: {item.creator}
