@@ -23,19 +23,21 @@ const FeaturedProduct = ({ marketplace }) => {
                 </div>
                 <div className="absolute top-[50%] left-[50%] flex lg:flex-row flex-col items-center justify-center translate-x-[-50%] translate-y-[-50%] gap-8 opacity-0 hover:opacity-100 h-full w-full bg-product-image-hover cursor-pointer">
                   <h3 className="block lg:hidden text-white">{product.name}</h3>
-                  <span className="text-white lg:block hidden text-lg">
-                    View Product
-                  </span>
                   <Link
                     to={"/marketplace/editorials/" + product._id}
-                    className="p-3 border border-white rounded-full"
+                    className="flex flex-row items-center gap-3"
                   >
-                    <BsArrowRight
-                      style={{
-                        color: "#ffffff",
-                        fontSize: "30px",
-                      }}
-                    />
+                    <span className="text-white lg:block hidden text-lg">
+                      View Product
+                    </span>
+                    <div className="p-3 border border-white rounded-full">
+                      <BsArrowRight
+                        style={{
+                          color: "#ffffff",
+                          fontSize: "30px",
+                        }}
+                      />
+                    </div>
                   </Link>
                 </div>
               </div>
@@ -51,15 +53,17 @@ const FeaturedProduct = ({ marketplace }) => {
                       {product.creator}
                     </p>
                   </div>
-                  <div className="border border-secondary-black sm:block hidden p-3 rounded-full">
-                    <BsArrowRight
-                      style={{
-                        color: "#616161",
-                        fontSize: "35`px",
-                        cursor: "pointer",
-                      }}
-                    />
-                  </div>
+                  <Link to={"/marketplace/editorials/" + product._id}>
+                    <div className="border border-secondary-black sm:block hidden p-3 rounded-full">
+                      <BsArrowRight
+                        style={{
+                          color: "#616161",
+                          fontSize: "35`px",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
