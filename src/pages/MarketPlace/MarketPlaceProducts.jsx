@@ -1,34 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import PrimaryBtn from "../../components/PrimaryBtn";
 import { BsArrowRight } from "react-icons/bs";
 import { IoIosHeartEmpty, IoMdHeart } from "react-icons/io";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import { cartActions } from "../../store/cart-slice";
 import { useQuery } from "@tanstack/react-query";
 import { getMarketplaceProduct } from "../../utils/artsy-api";
 import { formatPrice } from "../../utils/priceFormatter";
 import axiosInstance, { getToken } from "../../utils/axiosInstance";
 import { toast, Toaster } from "sonner";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const MarketPlaceProducts = () => {
-  // const dispatch = useDispatch();
-  // const cart = useSelector((state) => state.cart);
-  // dispatch(
-  //   cartActions.addItemToCart({
-  //     id: product.id,
-  //     name: product.name,
-  //     actualPrice: product.price,
-  //     price: product.price,
-  //     creator: product.creator,
-  //     size: product.size,
-  //     image: product.image,
-  //     quantity: number,
-  //     totalProducts: cart.totalProducts,
-  //     totalPrice: cart.totalPrice,
-  //   })
-  // );
+  const queryClient = useQueryClient();
 
   const addProductToCartHandler = async () => {
     try {
@@ -42,8 +26,10 @@ const MarketPlaceProducts = () => {
         creator: product.creator,
         location: product.location,
         image: product.image,
+        stripePriceId: product.stripePriceId,
       });
       toast.success("Product added to cart successfully!");
+      queryClient.invalidateQueries(["cart"]);
     } catch (error) {
       console.error("Error adding product to cart:", error);
       toast.error(error.response.data.message);
@@ -110,7 +96,7 @@ const MarketPlaceProducts = () => {
 
   return (
     <div className="lg:my-[2%] lg:mx-[8%] sm:mx-[5%] mx-[3%]">
-      <Toaster position="top-right" richColors />
+      <Toaster position="top-right" richColors duration={1000} />
       <p className="text-[#BCB7B7] my-4">
         Home/ Marketplace/ Editorials/{" "}
         <span className="text-pure-black">{product.name}</span>
