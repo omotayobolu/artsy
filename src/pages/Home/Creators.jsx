@@ -5,12 +5,12 @@ const Creators = () => {
   return (
     <div className="relative bg-light-grey lg:h-[792px] lg:px-[8%] sm:px-[5%] px-[3%] py-[5%]">
       <div className="flex flex-row items-start justify-between">
-        <h2 className="uppercase font-semibold leading-normal">
+        <h2 className="uppercase font-bold leading-normal">
           Top Creators of <br className="lg:block hidden" /> the week
         </h2>
         <div className="flex flex-row gap-4">
           <div className="relative bg-grey h-[220px] lg:block hidden w-[10px] rounded-lg">
-            <span className="absolute bottom-0 bg-primary-black h-[40px] w-[15px] rounded-lg"></span>
+            <span className="absolute bottom-0 bg-primary-black h-[40px] w-[10px] rounded-lg"></span>
           </div>
           <ul className="creators hidden lg:list-none list-disc lg:flex lg:flex-col flex-row items-center justify-center gap-8 mt-[-5%]">
             <li>Editorial</li>

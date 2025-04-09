@@ -18,12 +18,14 @@ const Hero = () => {
           access.
         </p>
       </div>
-      <div className="my-8 lg:flex lg:flex-row hidden flex-col items-center gap-2 overflow-x-hidden">
-        <img src={Carousel1} alt="" />
-        <img src={Carousel2} alt="" />
-        <img src={Carousel3} alt="" />
-        <img src={Carousel4} alt="" />
-        <img src={Carousel5} alt="" />
+      <div className="my-8 lg:block hidden overflow-hidden">
+        <div className="flex flex-row items-center gap-2" id="carousel">
+          <img src={Carousel1} alt="" />
+          <img src={Carousel2} alt="" />
+          <img src={Carousel3} alt="" />
+          <img src={Carousel4} alt="" />
+          <img src={Carousel5} alt="" />
+        </div>
       </div>
     </div>
   );

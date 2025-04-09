@@ -20,27 +20,31 @@ const Footer = () => {
 
   return (
     <>
-      <Toaster position="top-right" expand={true} richColors />
-      <div className="md:border border-secondary-black md:flex flex-col gap-8  justify-center items-center py-16">
-        <h3 className="md:font-normal font-medium uppercase">Newsletter</h3>
+      <Toaster position="top-right" expand={true} richColors duration={1000} />
+      <div className="md:border border-secondary-black md:flex flex-col gap-8  justify-center items-center py-16 font-satoshi">
+        <h3 className="md:font-normal font-medium uppercase font-Baskervville">
+          Newsletter
+        </h3>
         <p className="md:text-xl text-md md:my-0 my-4 md:normal-case uppercase leading-normal md:text-center">
           Subscribe to get daily updates on new drops & exciting deals
         </p>
         <form
           onSubmit={subscribeNewsletter}
-          className="flex md:flex-row flex-col md:items-center items-start gap-6"
+          className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-xl mx-auto"
         >
           <input
             type="email"
-            className="border border-secondary-black px-6 py-2 placeholder:uppercase placeholder:text-base text-secondary-black text-md"
+            className="flex-1 border border-secondary-black px-6 py-2.5 placeholder:uppercase placeholder:text-base text-secondary-black w-full"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
-          <PrimaryBtn className="uppercase text-sm">Subscribe</PrimaryBtn>
+          <PrimaryBtn className="uppercase font-Baskervville text-base w-full md:w-auto">
+            Subscribe
+          </PrimaryBtn>
         </form>
       </div>
-      <div className="lg:my-[5%] md:my-[8%] my-[3%] flex flex-row items-center justify-between">
-        <h2 className="uppercase md:block hidden text-primary-black font-semibold">
+      <div className="lg:my-[5%] md:my-[8%] my-[3%] flex flex-row items-center justify-between font-satoshi">
+        <h2 className="uppercase md:block hidden text-primary-black font-bold ">
           <Link to="/home">Artsy.</Link>
         </h2>
         <ul className="flex-col md:flex hidden gap-6 text-secondary-black">

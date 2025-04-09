@@ -30,23 +30,23 @@ const UpcomingAuctions = ({ auctions }) => {
 
   return (
     <>
-      <div className="lg:px-[8%] py-[5%] bg-gradient-to-r from-blue via-light-blue to-orange">
-        <h2 className="text-[40px] text-white leading-normal lg:block hidden ">
+      <div className="font-satoshi lg:px-[8%] md:px-[5%] py-[5%] bg-gradient-to-r from-blue via-light-blue to-orange">
+        <h2 className="text-[40px] text-white leading-normal lg:block hidden underline underline-offset-[16px]">
           See Upcoming Auctions and Exhibitions
         </h2>
-        <hr className="w-[55%] hidden lg:block text-white" />
+
         <div
-          className="my-6 p-8 md:pt-[30%] text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,52%)] flex flex-row justify-between"
+          className="my-6 md:p-8 p-4 md:pt-[30%] text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,52%)] flex flex-row justify-between"
           style={{
             backgroundImage: `url(${auctions[currentSlide].image})`,
           }}
         >
-          <div className="flex flex-row lg:items-end items-center gap-2 w-full">
+          <div className="flex flex-row lg:items-end items-center xl:gap-2 gap-4 w-full">
             <span className="text-3xl">0{currentSlide + 1}</span>
-            <div className="flex lg:flex-row flex-col gap-4 items-end justify-between w-full">
+            <div className="flex xl:flex-row flex-col gap-4 xl:items-end items-start justify-between w-full">
               <div className="flex flex-col gap-6 lg:w-[70%] w-full">
                 <p
-                  className="text-lg leading-normal
+                  className="text-xl leading-normal font-Bellefair uppercase
                 "
                 >
                   {auctions[currentSlide].name}
@@ -54,22 +54,26 @@ const UpcomingAuctions = ({ auctions }) => {
                 <p className="font-normal uppercase text-[0.9rem]">
                   starts on: {time} {day}
                 </p>
-                <p className="font-medium text-base uppercase w-[628.8px]">
+                <p className="font-medium text-base uppercase xl:w-[628.8px] md:w-[500px]">
                   get exclusive viewing of contemporary art and connect with
                   investors and auctioneers across the world bringing their
                   highest and lowest bids.
                 </p>
               </div>
-              <div className="md:text-md text-sm flex flex-row items-end gap-4">
-                <a className="pb-[1px] border-b border-white">See more</a>
-                <button className="py-1 px-2 rounded-md border border-white">
-                  Set a reminder
-                </button>
+              <div className="w-full xl:w-auto flex justify-end">
+                <div className="md:text-md text-base flex flex-row items-center gap-4">
+                  <Link to="/auctions" className="underline underline-offset-4">
+                    See more
+                  </Link>
+                  <button className="py-1 px-2 rounded-md border border-white">
+                    Set a reminder
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="lg:flex hidden flex-row justify-between items-center my-4">
+        <div className="md:flex hidden flex-row justify-between items-center my-4">
           <div className="relative bg-grey w-[200px] h-[6px]">
             <span
               className={`absolute bg-white w-[50px] h-[6px] rounded-md
