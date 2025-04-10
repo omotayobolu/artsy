@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Hamburger from "../assets/images/hamburger.png";
@@ -22,6 +22,14 @@ const Navbar = () => {
       setMobileNav("open");
     }
   }
+
+  useEffect(() => {
+    if (mobileNav === "open") {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [mobileNav]);
 
   return (
     <header className="py-8 font-satoshi">
@@ -59,7 +67,7 @@ const Navbar = () => {
         <ul
           className={`sm:flex gap-6 ${
             mobileNav === "open"
-              ? "flex-col flex z-20 bg-white h-screen mt-[30%] mx-[5%] gap-12"
+              ? "flex-col flex z-20 bg-white h-screen mt-[30%] mx-[3%] gap-12"
               : "flex-row hidden z-30"
           } `}
         >
