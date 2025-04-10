@@ -32,11 +32,17 @@ module.exports = {
       sm: "640px",
       md: "768px",
       lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1920px",
     },
     extend: {
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
         stix: ["Stix Two Text", "serif"],
+        Bellefair: ["Bellefair", "serif"],
+        Baskervville: ["Baskervville", "serif"],
+        Rubik: ["Rubik", "sans-serif"],
       },
       backgroundImage: {
         tick: "url('/src/assets/images/tick.png')",
