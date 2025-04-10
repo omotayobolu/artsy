@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import filter from "../../assets/images/filter.png";
+import React, { useState } from "react";
+import { RxCross2 } from "react-icons/rx";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { useSearchParams } from "react-router-dom";
 import { useQueryParam } from "../../utils/useQueryParams";
 
-const Filter = () => {
+const Filter = ({ showFilterNav, setShowFilterNav }) => {
   const [categoryOpened, setCategoryOpened] = useState(true);
   const [priceOpened, setPriceOpened] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,14 +30,25 @@ const Filter = () => {
     } else {
       updatedCategories.push(category);
     }
-
     if (updatedCategories.length > 0) {
       updateQueryParam("category", updatedCategories.join(","));
+    } else {
+      setSearchParams((prev) => {
+        const params = new URLSearchParams(prev);
+        params.delete("category");
+        return params;
+      });
     }
+    setShowFilterNav(false);
   };
 
   return (
-    <div>
+    <div className={`relative block ${showFilterNav ? "block" : ""} `}>
+      <RxCross2
+        className="absolute right-0 top-1 cursor-pointer lg:hidden"
+        size={24}
+        onClick={() => setShowFilterNav(false)}
+      />
       <div className="mt-10">
         <div className="flex flex-row items-center gap-3 cursor-pointer">
           <HiOutlineAdjustmentsHorizontal size="35px" color="#616161" />
@@ -45,7 +56,7 @@ const Filter = () => {
             Filter
           </h3>
         </div>
-        <div className=" mt-2 rounded-xl bg-[#AFB091] h-[5px] md:block hidden"></div>
+        <div className=" mt-2 rounded-xl bg-[#AFB091] h-[5px] lg:block hidden"></div>
       </div>
       <div
         className="mt-[60px] filter"
@@ -139,15 +150,16 @@ const Filter = () => {
         )}
       </div>
       {priceOpened && (
-        <div className="text-primary-black text-md font-normal flex flex-col items-start gap-2 my-4 font-satoshi">
+        <div className="text-primary-black text-md font-normal flex flex-col items-start xl:gap-2 gap-3 my-4 font-satoshi">
           <button
-            onClick={() =>
+            onClick={() => {
               setSearchParams((prev) => {
                 const params = new URLSearchParams(prev);
                 params.delete("priceFilter");
                 return params;
-              })
-            }
+              });
+              setShowFilterNav(false);
+            }}
             className={`cursor-pointer ${
               !priceFilter ? "underline underline-offset-4" : ""
             }`}
@@ -155,18 +167,22 @@ const Filter = () => {
             All
           </button>
           <button
-            onClick={() => updateQueryParam("priceFilter", "price<100")}
-            className={`cursor-pointer ${
+            onClick={() => {
+              updateQueryParam("priceFilter", "price<100");
+              setShowFilterNav(false);
+            }}
+            className={`cursor-pointer text-left ${
               priceFilter == "price<100" ? "underline underline-offset-4" : ""
             }`}
           >
             Below $100.00
           </button>
           <button
-            onClick={() =>
-              updateQueryParam("priceFilter", "price>=100andprice<=150")
-            }
-            className={`cursor-pointer ${
+            onClick={() => {
+              updateQueryParam("priceFilter", "price>=100andprice<=150");
+              setShowFilterNav(false);
+            }}
+            className={`cursor-pointer text-left ${
               priceFilter == "price>=100andprice<=150"
                 ? "underline underline-offset-4"
                 : ""
@@ -175,10 +191,11 @@ const Filter = () => {
             $100.00 - $150.00
           </button>
           <button
-            onClick={() =>
-              updateQueryParam("priceFilter", "price>=150andprice<=200")
-            }
-            className={`cursor-pointer ${
+            onClick={() => {
+              updateQueryParam("priceFilter", "price>=150andprice<=200");
+              setShowFilterNav(false);
+            }}
+            className={`cursor-pointer text-left ${
               priceFilter == "price>=150andprice<=200"
                 ? "underline underline-offset-4"
                 : ""
@@ -187,8 +204,11 @@ const Filter = () => {
             $150.00 - $200.00
           </button>
           <button
-            onClick={() => updateQueryParam("priceFilter", "price>200")}
-            className={`cursor-pointer ${
+            onClick={() => {
+              updateQueryParam("priceFilter", "price>200");
+              setShowFilterNav(false);
+            }}
+            className={`cursor-pointer text-left ${
               priceFilter == "price>200" ? "underline  underline-offset-4" : ""
             }`}
           >

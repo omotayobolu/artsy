@@ -107,7 +107,7 @@ const MarketPlaceProducts = () => {
             <img
               src={product.image}
               alt={product.name}
-              className="max-h-full h-[600px] w-full"
+              className="max-h-full md:h-[600px] h-[380px] w-full"
             />
           </div>
           <div className="lg:w-[50%] w-full">
@@ -140,7 +140,7 @@ const MarketPlaceProducts = () => {
                 >
                   -
                 </span>
-                <p className="font-medium lg:text-[30px]">{number}</p>
+                <p className="font-medium lg:text-[30px] text-md">{number}</p>
                 <span
                   className="cursor-pointer font-medium"
                   onClick={addNumber}
@@ -148,7 +148,7 @@ const MarketPlaceProducts = () => {
                   +
                 </span>
               </div>
-              <div className="lg:my-6 flex flex-row items-center gap-6">
+              <div className="lg:my-6 my-3 flex flex-row items-center gap-6">
                 <PrimaryBtn
                   className="flex items-center gap-2 text-sm"
                   onClick={addProductToCartHandler}
