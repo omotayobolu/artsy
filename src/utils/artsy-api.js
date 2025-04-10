@@ -1,8 +1,6 @@
 import axiosInstance, { getToken } from "./axiosInstance";
 
 export const getMarketplaceData = async (
-  limit,
-  offset,
   category,
   sortByPrice,
   priceFilter,
@@ -10,8 +8,6 @@ export const getMarketplaceData = async (
 ) => {
   const params = new URLSearchParams();
 
-  if (limit) params.append("limit", limit);
-  if (offset) params.append("offset", offset);
   if (category) params.append("category", category);
   if (sortByPrice) params.append("sortByPrice", sortByPrice);
   if (priceFilter) params.append("priceFilter", priceFilter);
