@@ -14,7 +14,7 @@ const Home = () => {
     error: marketplaceError,
   } = useQuery({
     queryKey: ["marketplace"],
-    queryFn: getMarketplaceData,
+    queryFn: () => getMarketplaceData(),
   });
 
   const {
