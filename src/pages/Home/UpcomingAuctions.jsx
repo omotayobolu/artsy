@@ -42,11 +42,11 @@ const UpcomingAuctions = ({ auctions }) => {
           }}
         >
           <div className="flex flex-row lg:items-end items-center xl:gap-2 gap-4 w-full">
-            <span className="text-3xl">0{currentSlide + 1}</span>
+            <span className="md:text-3xl text-xl">0{currentSlide + 1}</span>
             <div className="flex xl:flex-row flex-col gap-4 xl:items-end items-start justify-between w-full">
               <div className="flex flex-col gap-6 lg:w-[70%] w-full">
                 <p
-                  className="text-xl leading-normal font-Bellefair uppercase
+                  className="sm:text-xl text-lg leading-normal font-Bellefair uppercase
                 "
                 >
                   {auctions[currentSlide].name}

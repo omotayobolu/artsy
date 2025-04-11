@@ -51,7 +51,7 @@ const Drop = () => {
   if (auctionsLoading) return <p className="text-center">Loading....</p>;
   return (
     <div className="lg:mx-[7.6%] sm:mx-[5%] mx-[3%] font-satoshi">
-      <div className="my-20 w-full">
+      <div className="md:my-20 my-10 w-full">
         <h4 className="inline-flex items-center gap-2 font-medium text-[#BCB7B7]">
           Home/ Auctions/ Live Bid/
           <p className="text-lg font-medium text-secondary-black"> Drop</p>
@@ -65,21 +65,32 @@ const Drop = () => {
             Notify Me
           </button>
         </div> */}
-        <div className="mt-20 flex flex-col gap-28">
+        <div className="md:mt-20 mt-10 flex flex-col md:gap-28 gap-16">
           {auctions.slice(0, visibleAuctions).map((drop) => (
-            <div className="w-full flex flex-row items-start gap-10">
-              <div className="w-1/2">
+            <div className="w-full flex sm:flex-row flex-col items-start md:gap-10 gap-6">
+              <div className="sm:w-1/2 w-full relative">
                 <img
                   src={drop.image}
                   alt={drop.name}
                   className="h-[341px] w-full rounded-[10px]"
                 />
+                <div
+                  className={` absolute top-4 right-4 uppercase rounded-[10px] py-2.5 w-[123px] text-center block sm:hidden ${
+                    drop.status === "live" && "bg-[#3EA03B]"
+                  } ${drop.status === "upcoming" && "bg-[#4693ED]"} ${
+                    drop.status === "ended" && "bg-[#999EA5]"
+                  } `}
+                >
+                  <p className="text-sm font-medium text-white">
+                    {drop.status}
+                  </p>
+                </div>
               </div>
-              <div className="w-1/2  flex flex-col  h-[341px]">
-                <div className="flex-1">
+              <div className="sm:w-1/2 flex flex-col sm:h-[341px]">
+                <div className="sm:flex-1">
                   <div className="flex flex-col gap-5">
                     <div
-                      className={` uppercase  rounded-[10px] py-2.5 w-[189px] text-center  ${
+                      className={` uppercase rounded-[10px] py-2.5 w-[189px] text-center sm:block hidden ${
                         drop.status === "live" && "bg-[#3EA03B]"
                       } ${drop.status === "upcoming" && "bg-[#4693ED]"} ${
                         drop.status === "ended" && "bg-[#999EA5]"
@@ -105,7 +116,7 @@ const Drop = () => {
 
                 {drop.status === "live" && (
                   <Link to={`/auctions/${drop._id}/livebid`} className="w-fit">
-                    <p className="text-[#006CA2] text-md underline underline-offset-4">
+                    <p className="text-[#006CA2] text-md underline underline-offset-4 sm:mt-0 mt-3">
                       Join now
                     </p>
                   </Link>

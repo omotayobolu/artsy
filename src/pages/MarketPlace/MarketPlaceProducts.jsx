@@ -95,7 +95,7 @@ const MarketPlaceProducts = () => {
   if (productError) return <p className="text-center">Error...</p>;
 
   return (
-    <div className="lg:my-[2%] lg:mx-[8%] sm:mx-[5%] mx-[3%]">
+    <div className="lg:my-[2%] lg:mx-[8%] sm:mx-[5%] mx-[3%] font-satoshi">
       <Toaster position="top-right" richColors duration={1000} />
       <p className="text-[#BCB7B7] my-4">
         Home/ Marketplace/ Editorials/{" "}

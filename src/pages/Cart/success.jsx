@@ -34,12 +34,12 @@ const success = () => {
       <img src={SuccessDesign} alt="" className="absolute top-0 z-20" />
       <div className="flex flex-col justify-center items-center">
         <img src={Delivery} alt="" />
-        <h3 className="text-pure-black font-medium">
+        <h3 className="text-pure-black font-medium mt-4 leading-normal text-center">
           Hey, thank you for your purchase.
         </h3>
-        <h4 className="text-pure-black flex flex-row items-center font-normal mt-7">
+        <h4 className="text-pure-black flex flex-wrap items-center justify-center font-normal mt-7 text-center">
           You are amazing. Cheers to being{" "}
-          <span className="ml-2 font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#006CA2] to-[rgba(192,86,9,0.49)] max-w-max">
+          <span className="ml-2 font-medium text-transparent bg-clip-text bg-gradient-to-b from-[#006CA2] to-[rgba(192,86,9,0.49)]">
             ARTSY!
           </span>
           <img src={PartyPopper} alt="" className="ml-2 w-10 h-10" />

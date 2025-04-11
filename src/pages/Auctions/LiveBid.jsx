@@ -66,11 +66,11 @@ const LiveBid = () => {
   if (auctionLoading) return <div className="text-center">Loading...</div>;
   return (
     <div className="lg:my-[2%] lg:mx-[8%] sm:mx-[5%] mx-[3%] font-satoshi">
-      <Toaster position="top-right" richColors />
+      <Toaster position="top-right" richColors duration={1000} />
       <h4 className="inline-flex items-center gap-2 font-medium text-[#BCB7B7]">
         Home/ Auctions/ <p className="text-lg text-secondary-black">Live Bid</p>
       </h4>
-      <div className="w-full border border-[#000000] mt-[37px] flex flex-row items-start">
+      <div className="w-full border border-[#000000] mt-[37px] sm:flex hidden flex-row items-start">
         <div className="w-1/2 relative">
           <img
             src={auction.image}
@@ -79,7 +79,7 @@ const LiveBid = () => {
           />
           <div className="absolute inset-0 bg-secondary-black bg-opacity-40 rounded-[15px]" />
 
-          <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 font-semibold text-white whitespace-nowrap">
+          <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 font-semibold text-white md:whitespace-nowrap leading-normal">
             Current Bid: {formatPrice(auction.highestBid)}
           </h2>
           <div className="absolute top-6 right-[22px] bg-[#4693ED] rounded-[20px] py-2 px-7">
@@ -113,12 +113,12 @@ const LiveBid = () => {
                 ))}
               </div>
             </div>
-            <div className="flex-shrink-0 flex flex-row items-end justify-between gap-16 mb-9">
+            <div className="flex-shrink-0 flex flex-row items-end justify-between lg:gap-16 md:gap-8 mb-9">
               <div className="w-full flex flex-col gap-2.5">
                 <p className="text-md italic text-[#BAB9B9] font-medium">
                   Creator: {auction.creator}
                 </p>
-                <div className="p-[1px] w-full bg-gradient-to-r from-[rgba(120,163,173,1)] to-[rgba(192,86,9,0.49)] rounded-[25px]">
+                <div className="p-[1px] w-full max-w-full bg-gradient-to-r from-[rgba(120,163,173,1)] to-[rgba(192,86,9,0.49)] rounded-[25px]">
                   <form onSubmit={submitBid} className="relative">
                     <input
                       type="text"
@@ -153,6 +153,91 @@ const LiveBid = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="sm:hidden fixed top-0 left-0 px-7 w-full h-screen z-99999 text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,82%)]"
+        style={{
+          backgroundImage: `url(${auction.image})`,
+        }}
+      >
+        <div className="absolute top-6 right-24 bg-[#4693ED] rounded-[20px] py-2 px-7">
+          <p className="text-md font-medium text-white uppercase">
+            {auction.status}
+          </p>
+        </div>
+        <Link to="/auctions">
+          <div className="absolute top-7 right-6 bg-[rgba(184,180,180,0.49)] p-1 rounded-full">
+            <CgClose color="#FFFFFF" size="27px" />
+          </div>
+        </Link>
+        <h2 className="absolute top-1/4 left-1/2 -translate-x-1/2 font-semibold text-white whitespace-nowrap leading-normal text-xl">
+          Current Bid: {formatPrice(auction.highestBid)}
+        </h2>
+        <div className="flex flex-col h-full pt-[30rem] pb-36">
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-auto  space-y-4 pr-2"
+          >
+            <div className="flex flex-col justify-end min-h-full">
+              {auction.bids.map((bid) => (
+                <div
+                  key={bid._id}
+                  className="my-4 flex flex-row items-center space-x-2"
+                >
+                  <IoPersonCircleSharp size="60px" color="#ccc" />
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-white">{bid.bidder}</p>
+                    <p className="text-md font-medium text-white">
+                      {bid.message}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-6 left-0 w-full px-7 flex flex-row items-end gap-4">
+          <div className="w-full flex flex-col gap-2.5">
+            <p className="text-md italic text-[#BAB9B9] font-medium">
+              Creator: {auction.creator}
+            </p>
+            <div className="p-[1px] w-full max-w-full rounded-[25px]">
+              <form onSubmit={submitBid} className="relative">
+                <input
+                  type="text"
+                  className="rounded-[25px] py-[15px] px-8 w-full text-white bg-transparent placeholder-white outline-none border border-white backdrop-blur-sm focus:bg-transparent focus:ring-0 focus:outline-none"
+                  style={{ backgroundColor: "transparent" }}
+                  placeholder="Place a bid..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+
+                <button className="absolute right-8 top-4">
+                  <IoPaperPlaneSharp color="#FFFFFF" size="25px" />
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="relative">
+            {hearts.map((heart) => (
+              <IoMdHeart
+                color="red"
+                key={heart.id}
+                className="absolute text-xl animate-float"
+                style={{
+                  left: `${heart.left}%`,
+                  bottom: `${heart.bottom}`,
+                }}
+              />
+            ))}
+            <button
+              onClick={sendHeart}
+              className="border border[#000000] rounded-full w-fit p-2.5"
+            >
+              <IoMdHeart fontSize="35px" cursor="pointer" color="red" />
+            </button>
           </div>
         </div>
       </div>

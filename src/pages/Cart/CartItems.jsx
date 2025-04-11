@@ -149,7 +149,7 @@ const CartItems = () => {
                 <div className="flex flex-row justify-between w-full">
                   <div className="flex flex-col items-start h-full">
                     <h4 className="font-medium leading-relaxed">{item.name}</h4>
-                    <div className="flex flex-col flex-grow justify-center gap-4">
+                    <div className="sm:flex hidden flex-col flex-grow justify-center gap-4">
                       <p className="text-grey3 text-sm">
                         Created by: {item.creator}
                       </p>
@@ -184,7 +184,7 @@ const CartItems = () => {
                       onClick={() => removeItemHandler(item.productId)}
                       className="self-end cursor-pointer text-xl text-grey3"
                     />
-                    <h3 className="self-end">{formatPrice(item.price)}</h3>
+                    <h3 className="self-end mb-3">{formatPrice(item.price)}</h3>
                   </div>
                 </div>
               </div>

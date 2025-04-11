@@ -72,7 +72,7 @@ const Auctions = () => {
             Here’s an overview of products actively on auction, explore!
           </h4>
         </div>
-        <div className="mt-28">
+        <div className="mt-16">
           <style>{auctionStyles}</style>
           <Swiper
             modules={[Pagination, A11y]}
@@ -85,19 +85,16 @@ const Auctions = () => {
             }}
             className="auction-swiper-container"
             breakpoints={{
-              // Mobile
               320: {
                 slidesPerView: 1.2,
                 spaceBetween: 20,
               },
-              // Tablet
               768: {
                 slidesPerView: 2,
                 spaceBetween: 30,
               },
-              // Desktop
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 2.2,
                 spaceBetween: 43,
               },
             }}
@@ -127,10 +124,10 @@ const Auctions = () => {
           </Swiper>
         </div>
         <div className="mt-[45px]">
-          <h3 className="font-satoshi font-bold text-[#000000]">
+          <h3 className="font-satoshi font-bold text-[#000000] leading-normal">
             Top bids from popular creators
           </h3>
-          <div className="mt-[74px] flex flex-row items-center gap-[110px]">
+          <div className="mt-[74px] flex sm:flex-row flex-col items-center lg:gap-[110px] gap-10">
             {auctions
               .filter((auction) => auction.bids.length > 0)
               .map((auction) => (
@@ -154,24 +151,26 @@ const Auctions = () => {
                       alt={auction.name}
                       className="w-[548px] max-w-full h-[280px] mt-3 object-cover rounded-lg"
                     />
-                    <h3 className="mt-[30px] mx-[34px] ">{auction.name}</h3>
+                    <h3 className="mt-[30px] mx-[34px] leading-normal md:font-bold font-medium">
+                      {auction.name}
+                    </h3>
                   </div>
                   <div className="flex flex-col gap-[30px] mt-[47px]">
-                    <h3 className="flex flex-row items-center font-medium text-[#616161] text-xl">
+                    <h3 className="flex flex-row items-center font-medium text-[#616161] ">
                       Creator:
-                      <p className="ml-2 text-[30px] font-bold text-secondary-black leading-normal">
+                      <p className="ml-2 lg:text-[30px] text-lg md:font-bold font-medium text-secondary-black">
                         {auction.creator}
                       </p>
                     </h3>
                     <h3 className="flex flex-row items-center font-medium text-[#616161]">
                       Date:
-                      <p className="ml-2 text-[30px] font-bold text-secondary-black leading-normal">
+                      <p className="ml-2 lg:text-[30px] text-lg md:font-bold font-medium  text-secondary-black leading-normal">
                         {new Date().toISOString().split("T")[0]}
                       </p>
                     </h3>
                     <h3 className="flex flex-row items-center font-medium text-[#616161]">
                       Current Bid:
-                      <p className="ml-2 text-[30px] font-bold text-secondary-black leading-normal">
+                      <p className="ml-2 lg:text-[30px] text-lg md:font-bold font-medium  text-secondary-black leading-normal">
                         {formatPrice(auction.highestBid)}
                       </p>
                     </h3>
