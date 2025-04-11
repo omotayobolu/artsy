@@ -1,3 +1,3 @@
 # artsy
 
-live-link: ([https://artsy-neon.vercel.app/](https://artsy-neon.vercel.app/)")
+live link: [artsy photography](https://artsyphotography.vercel.app/)
