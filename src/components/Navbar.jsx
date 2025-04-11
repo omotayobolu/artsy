@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Hamburger from "../assets/images/hamburger.png";
-import CloseNav from "../assets/images/close nav.png";
 import { getToken } from "../utils/axiosInstance";
 import { getCart } from "../utils/artsy-api";
 import { useQuery } from "@tanstack/react-query";
+import { CgClose } from "react-icons/cg";
 
 const Navbar = () => {
   const [mobileNav, setMobileNav] = useState("close");
@@ -47,15 +47,15 @@ const Navbar = () => {
           />
         )}
         {mobileNav === "open" && (
-          <img
-            src={CloseNav}
-            alt=""
-            className="sm:hidden block absolute top-[5%] right-[5%] cursor-pointer"
+          <button
             onClick={() => switchNav("close")}
-          />
+            className="sm:hidden block absolute top-[4%] right-[5%] cursor-pointer"
+          >
+            <CgClose size="27px" />
+          </button>
         )}
         <h3
-          className={`uppercase text-primary-black sm:block flex justify-center items-center z-30 ${
+          className={`uppercase text-primary-black sm:block flex justify-center items-center  ${
             mobileNav === "open" && "absolute top-[5%] left-[5%]"
           }`}
         >
