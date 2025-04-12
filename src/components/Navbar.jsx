@@ -42,7 +42,7 @@ const Navbar = () => {
           <img
             src={Hamburger}
             alt=""
-            className="sm:hidden block cursor-pointer"
+            className="sm:hidden block cursor-pointer z-30"
             onClick={() => switchNav("open")}
           />
         )}
