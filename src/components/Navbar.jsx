@@ -67,7 +67,7 @@ const Navbar = () => {
         <ul
           className={`sm:flex gap-6 ${
             mobileNav === "open"
-              ? "flex-col flex z-30 bg-white h-screen mt-[30%] mx-[3%] gap-12"
+              ? "flex-col flex z-20 bg-white h-screen mt-[30%] mx-[3%] gap-12"
               : "flex-row hidden z-30"
           } `}
         >
@@ -77,7 +77,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "active link"
-                  : `link ${mobileNav === "open" && "font-medium z-30"} text-lg`
+                  : `link ${mobileNav === "open" && "font-medium"} text-lg`
               }
               onClick={() => setMobileNav("close")}
             >
@@ -88,7 +88,7 @@ const Navbar = () => {
             <NavLink
               to={`/marketplace`}
               className={`${
-                mobileNav === "open" ? "font-medium z-30 text-lg" : "text-lg"
+                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
@@ -99,7 +99,7 @@ const Navbar = () => {
             <NavLink
               to={`/auctions`}
               className={`${
-                mobileNav === "open" ? "font-medium z-30 text-lg" : "text-lg"
+                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
@@ -110,7 +110,7 @@ const Navbar = () => {
             <NavLink
               to={`/drop`}
               className={`${
-                mobileNav === "open" ? "font-medium z-30 text-lg" : "text-lg"
+                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
