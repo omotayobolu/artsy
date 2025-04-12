@@ -142,7 +142,7 @@ const CartItems = () => {
                 <div className="w-[210px] h-[196px] flex items-center justify-center bg-gray-200">
                   <img
                     src={item.image}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover max-w-full"
                     alt={item.name}
                   />
                 </div>
