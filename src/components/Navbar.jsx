@@ -42,20 +42,20 @@ const Navbar = () => {
           <img
             src={Hamburger}
             alt=""
-            className="sm:hidden block cursor-pointer z-30"
+            className="sm:hidden block cursor-pointer"
             onClick={() => switchNav("open")}
           />
         )}
         {mobileNav === "open" && (
           <button
             onClick={() => switchNav("close")}
-            className="sm:hidden block absolute top-[4%] right-[5%] cursor-pointer z-30"
+            className="sm:hidden block absolute top-[4%] right-[5%] cursor-pointer"
           >
             <CgClose size="27px" />
           </button>
         )}
         <h3
-          className={`uppercase text-primary-black sm:block flex justify-center items-center z-30 ${
+          className={`uppercase text-primary-black sm:block flex justify-center items-center  ${
             mobileNav === "open" && "absolute top-[5%] left-[5%]"
           }`}
         >
@@ -67,7 +67,7 @@ const Navbar = () => {
         <ul
           className={`sm:flex gap-6 ${
             mobileNav === "open"
-              ? "flex-col flex z-20 bg-white h-screen mt-[30%] mx-[3%] gap-12"
+              ? "flex-col flex z-30 bg-white h-screen mt-[30%] mx-[3%] gap-12"
               : "flex-row hidden z-30"
           } `}
         >
