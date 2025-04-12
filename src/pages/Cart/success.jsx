@@ -31,7 +31,7 @@ const success = () => {
 
   return (
     <div className="font-satoshi">
-      <img src={SuccessDesign} alt="" className="absolute top-0 z-20" />
+      <img src={SuccessDesign} alt="" className="absolute top-0 z-10" />
       <div className="flex flex-col justify-center items-center">
         <img src={Delivery} alt="" />
         <h3 className="text-pure-black font-medium mt-4 leading-normal text-center">

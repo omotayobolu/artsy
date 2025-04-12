@@ -55,7 +55,7 @@ const Navbar = () => {
           </button>
         )}
         <h3
-          className={`uppercase text-primary-black sm:block flex justify-center items-center  ${
+          className={`uppercase text-primary-black sm:block flex justify-center items-center z-30 ${
             mobileNav === "open" && "absolute top-[5%] left-[5%]"
           }`}
         >

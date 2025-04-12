@@ -14,20 +14,20 @@ const CartTotals = () => {
     <div className="flex flex-col gap-8 font-satoshi">
       <CartSummary>
         <h4 className="text-grey3 font-normal">Products in cart:</h4>
-        <span className="text-primary-black text-lg font-normal">
+        <span className="text-primary-black md:text-lg text-md font-normal">
           {cart.cart.totalItems}
           {cart.cart.totalItems > 1 ? " items" : " item"}
         </span>
       </CartSummary>
       <CartSummary>
         <h4 className="text-grey3 font-normal">Shipping:</h4>
-        <span className="text-primary-black text-lg font-normal">
+        <span className="text-primary-black md:text-lg text-md font-normal">
           {formatPrice(cart.cart.shipping)}
         </span>
       </CartSummary>
       <CartSummary>
         <h4 className="text-grey3 font-normal">Total:</h4>
-        <span className="text-primary-black text-lg font-normal">
+        <span className="text-primary-black md:text-lg text-md font-normal">
           {formatPrice(cart.cart.roundedTotal)}
         </span>
       </CartSummary>

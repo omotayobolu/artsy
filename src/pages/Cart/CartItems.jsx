@@ -168,7 +168,7 @@ const CartItems = () => {
                       >
                         -
                       </span>
-                      <p className="font-medium lg:text-[30px]">
+                      <p className="font-medium lg:text-[30px] text-md">
                         {item.quantity}
                       </p>
                       <span

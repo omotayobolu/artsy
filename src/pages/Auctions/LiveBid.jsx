@@ -157,7 +157,7 @@ const LiveBid = () => {
         </div>
       </div>
       <div
-        className="sm:hidden fixed top-0 left-0 px-7 w-full h-screen z-99999 text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,82%)]"
+        className="sm:hidden fixed z-30 top-0 left-0 px-7 w-full h-screen z-99999 text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,82%)]"
         style={{
           backgroundImage: `url(${auction.image})`,
         }}

@@ -127,7 +127,7 @@ const Auctions = () => {
           <h3 className="font-satoshi font-bold text-[#000000] leading-normal">
             Top bids from popular creators
           </h3>
-          <div className="mt-[74px] flex sm:flex-row flex-col items-center lg:gap-[110px] gap-10">
+          <div className="mt-[74px] flex sm:flex-row flex-wrap flex-col items-center lg:gap-[110px] gap-10">
             {auctions
               .filter((auction) => auction.bids.length > 0)
               .map((auction) => (

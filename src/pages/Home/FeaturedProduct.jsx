@@ -7,7 +7,9 @@ const FeaturedProduct = ({ marketplace }) => {
   return (
     <div className="my-[5%] mx-[8%] font-satoshi">
       <div>
-        <h2 className="text-secondary-black mb-4">Featured Products</h2>
+        <h2 className="text-secondary-black mb-4 md:mt-0 mt-16 font-bold md:font-medium">
+          Featured Products
+        </h2>
       </div>
       <div className=" ">
         {marketplace.products.slice(0, 3).map((product) => (
