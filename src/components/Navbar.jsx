@@ -77,7 +77,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "active link"
-                  : `link ${mobileNav === "open" && "font-medium"} text-lg`
+                  : `link ${mobileNav === "open" && "font-medium z-30"} text-lg`
               }
               onClick={() => setMobileNav("close")}
             >
@@ -88,7 +88,7 @@ const Navbar = () => {
             <NavLink
               to={`/marketplace`}
               className={`${
-                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
+                mobileNav === "open" ? "font-medium z-30 text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
@@ -99,7 +99,7 @@ const Navbar = () => {
             <NavLink
               to={`/auctions`}
               className={`${
-                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
+                mobileNav === "open" ? "font-medium z-30 text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
@@ -110,7 +110,7 @@ const Navbar = () => {
             <NavLink
               to={`/drop`}
               className={`${
-                mobileNav === "open" ? "font-medium text-lg" : "text-lg"
+                mobileNav === "open" ? "font-medium z-30 text-lg" : "text-lg"
               } link `}
               onClick={() => setMobileNav("close")}
             >
