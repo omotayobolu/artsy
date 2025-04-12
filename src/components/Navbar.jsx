@@ -42,14 +42,14 @@ const Navbar = () => {
           <img
             src={Hamburger}
             alt=""
-            className="sm:hidden block cursor-pointer"
+            className="sm:hidden block cursor-pointer z-30"
             onClick={() => switchNav("open")}
           />
         )}
         {mobileNav === "open" && (
           <button
             onClick={() => switchNav("close")}
-            className="sm:hidden block absolute top-[4%] right-[5%] cursor-pointer"
+            className="sm:hidden block absolute top-[4%] right-[5%] cursor-pointer z-30"
           >
             <CgClose size="27px" />
           </button>
