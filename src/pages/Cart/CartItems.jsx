@@ -138,17 +138,25 @@ const CartItems = () => {
               key={item._id}
               className="py-6 border-[#747474] border-opacity-30 border-t-[0.3px]"
             >
-              <div className="flex flex-row gap-8 w-full h-full">
-                <div className="w-[210px] h-[196px] flex items-center justify-center bg-gray-200">
+              <div className="flex flex-row md:gap-8 gap-4 w-full h-full">
+                <div className="w-[150px] max-[400px]:w-[100px] h-[196px] sm:w-[210px] sm:h-[196px] flex-shrink-0 flex items-center justify-center">
                   <img
                     src={item.image}
-                    className="w-full h-full object-cover max-w-full"
                     alt={item.name}
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex flex-row justify-between w-full">
-                  <div className="flex flex-col items-start h-full">
-                    <h4 className="font-medium leading-relaxed">{item.name}</h4>
+                  <div className="flex flex-col items-start w-full h-full">
+                    <div className="flex flex-row items-start justify-between gap-4 w-full">
+                      <h4 className="font-medium leading-relaxed">
+                        {item.name}
+                      </h4>
+                      <CiCircleRemove
+                        onClick={() => removeItemHandler(item.productId)}
+                        className="cursor-pointer text-xl text-grey3 shrink-0"
+                      />
+                    </div>
                     <div className="sm:flex hidden flex-col flex-grow justify-center gap-4">
                       <p className="text-grey3 text-sm">
                         Created by: {item.creator}
@@ -157,34 +165,32 @@ const CartItems = () => {
                         Category: <span>{item.category}</span>
                       </p>
                     </div>
-                    <div className="text-[30px]  flex flex-row items-center gap-4 text-secondary-black mt-auto">
-                      <span
-                        className="cursor-pointer font-medium"
-                        onClick={
-                          item.quantity > 1
-                            ? () => decreaseQuantityHandler(item)
-                            : () => removeItemHandler(item.productId)
-                        } //removes item from cart when quantity is less than 1
-                      >
-                        -
-                      </span>
-                      <p className="font-medium lg:text-[30px] text-md">
-                        {item.quantity}
-                      </p>
-                      <span
-                        className="cursor-pointer font-medium"
-                        onClick={() => increaseQuantityHandler(item)}
-                      >
-                        +
-                      </span>
+                    <div className="w-full flex flex-row items-end justify-between  mt-auto">
+                      <div className="text-[30px]  flex flex-row items-center gap-4 text-secondary-black">
+                        <span
+                          className="cursor-pointer font-medium"
+                          onClick={
+                            item.quantity > 1
+                              ? () => decreaseQuantityHandler(item)
+                              : () => removeItemHandler(item.productId)
+                          } //removes item from cart when quantity is less than 1
+                        >
+                          -
+                        </span>
+                        <p className="font-medium lg:text-[30px] text-md">
+                          {item.quantity}
+                        </p>
+                        <span
+                          className="cursor-pointer font-medium"
+                          onClick={() => increaseQuantityHandler(item)}
+                        >
+                          +
+                        </span>
+                      </div>
+                      <h3 className="md:font-bold font-medium pb-3">
+                        {formatPrice(item.price)}
+                      </h3>
                     </div>
-                  </div>
-                  <div className="max-w-full flex flex-col  justify-between">
-                    <CiCircleRemove
-                      onClick={() => removeItemHandler(item.productId)}
-                      className="self-end cursor-pointer text-xl text-grey3"
-                    />
-                    <h3 className="self-end mb-3">{formatPrice(item.price)}</h3>
                   </div>
                 </div>
               </div>

@@ -51,7 +51,7 @@ const ShoppingCart = () => {
         <div>
           <CartItems cart={cart.cart.products} />
           <hr style={{ color: "#747474", height: "0.3px", opacity: "0.3" }} />
-          <div className="mt-16 mb-8 flex lg:flex-row flex-col-reverse items-center gap-24 w-full">
+          <div className="mt-16 mb-8 flex md:flex-row flex-col-reverse items-center gap-24 w-full">
             <div className="lg:w-[40%] w-full flex flex-col justify-center md:gap-10 gap-6">
               <PrimaryBtn
                 className="text-md w-full py-4"
