@@ -157,7 +157,7 @@ const LiveBid = () => {
         </div>
       </div>
       <div
-        className="sm:hidden fixed z-30 top-0 left-0 px-7 w-full h-screen z-99999 text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,82%)]"
+        className="sm:hidden absolute z-30 top-0 left-0 px-7 w-full h-screen z-99999 text-white bg-no-repeat bg-blend-overlay bg-cover bg-[rgba(0,0,0,82%)]"
         style={{
           backgroundImage: `url(${auction.image})`,
         }}
@@ -242,7 +242,7 @@ const LiveBid = () => {
         </div>
       </div>
       <Link to="/drop">
-        <div className="mt-9 flex flex-row items-center space-x-7">
+        <div className="mt-9 sm:flex hidden flex-row items-center space-x-7">
           <h3 className="font-medium ">See upcoming drops </h3>
           <div className="p-3 border-[0.5px] border-[#000000] rounded-full">
             <BsArrowRight
